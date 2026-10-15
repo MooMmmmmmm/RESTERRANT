@@ -1,0 +1,39 @@
+{
+  "menuReadSucceeded": true,
+  "menuItems": 113,
+  "categories": 15,
+  "withOrderOfferItems": 18,
+  "allHaveImageAndPrice": true,
+  "detailQueries": 2,
+  "detailParsing": [
+    {
+      "name": "培根蔬萃双层牛堡",
+      "defaultModifications": 5,
+      "defaultRounds": 0,
+      "parsed": true
+    },
+    {
+      "name": "麦辣鸡腿汉堡三件套",
+      "defaultModifications": 0,
+      "defaultRounds": 3,
+      "parsed": true
+    }
+  ],
+  "calculatedLivePrices": false,
+  "queriedPersonalCoupons": false,
+  "ordersCreated": false,
+  "storeIdentifiersPublished": false,
+  "snapshotFields": [
+    "id",
+    "name",
+    "category",
+    "price",
+    "original",
+    "image",
+    "contents",
+    "supportModify"
+  ],
+  "publicSnapshotCount": 113,
+  "publicSnapshotValidated": true,
+  "publicFoodFieldsAllowlisted": true
+}
