@@ -1,0 +1,16 @@
+{
+  "testsPassed": 24,
+  "menuFixtureSize": 250,
+  "fullMenuWithoutSeed": true,
+  "detailOnDemand": true,
+  "defaultsRequired": true,
+  "lockedTailItemsPreserved": true,
+  "maxCandidateQuotesTest": 7,
+  "boundedSearch": true,
+  "realMcpCalled": false,
+  "publicSnapshotCount": 30,
+  "browserFullMenuVisible": true,
+  "browserShowsLastFood": true,
+  "missingDefaultQuantityRejected": true,
+  "candidateQuoteLimitIsNotRequestLimit": true
+}

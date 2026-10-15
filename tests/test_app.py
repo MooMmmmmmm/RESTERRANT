@@ -76,6 +76,65 @@ class CoreTests(unittest.TestCase):
     def test_duplicate_confirmation_is_rejected(self):
         with self.assertRaises(ValueError):app.confirm({'budget':20,'ids':['1','1']})
 
+class FullMenuTests(unittest.TestCase):
+    setUp=CoreTests.setUp
+    tearDown=CoreTests.tearDown
+    def test_refresh_keeps_full_menu_without_seed_or_detail_prefetch(self):
+        class MenuMCP:
+            def __init__(self):self.calls=[]
+            def call(self,name,args):
+                self.calls.append(name)
+                if name=='query-meals':return {'data':{'meals':{str(i):{'name':f'food{i}','currentPrice':'10','originalPrice':'12','image':'https://menu-img.mcd.cn/food.png','canWithOrder':i%2==0} for i in range(250)},'categories':[{'name':'主食','meals':[{'code':str(i)} for i in range(250)]}]},'datetime':'test'}
+                if name=='query-store-coupons':return {'data':[]}
+                raise AssertionError('details must load only on demand')
+        self.refresh.stop();app.CLIENT=MenuMCP()
+        with patch.object(app,'SEED',{'catalog':[]}):app.refresh()
+        self.assertEqual(len(app.public_catalog()['foods']),250)
+        self.assertTrue(all(f['selectable'] for f in app.public_catalog()['foods']))
+        self.assertEqual(app.CLIENT.calls,['query-meals','query-store-coupons'])
+    def test_new_food_details_preserve_defaults_and_rounds(self):
+        app.STATE['catalog']['1'].pop('item');app.DETAILS.clear()
+        class DetailMCP(FakeMCP):
+            def __init__(self):super().__init__();self.calls=[]
+            def call(self,name,args):
+                self.calls.append((name,copy.deepcopy(args)))
+                if name=='query-meal-detail':return {'data':{'code':'1','supportModify':True,'modification':{'items':[{'values':[{'code':'m1','selectedQuantity':1,'selectedKey':'on'},{'code':'m2','selectedQuantity':0,'unselectedKey':'off'}]}]},'rounds':[{'id':1,'minQuantity':1,'maxQuantity':1,'choices':[{'code':'drink','name':'drink','isDefault':1,'quantity':1}]}]}}
+                return super().call(name,args)
+        app.CLIENT=DetailMCP();app.official(['1']);app.official(['1'])
+        self.assertEqual(sum(n=='query-meal-detail' for n,a in app.CLIENT.calls),1)
+        item=next(a['items'][0] for n,a in app.CLIENT.calls if n=='calculate-price')
+        self.assertEqual(item['modification']['values'][1]['key'],'off')
+        self.assertEqual(item['roundList'][0]['comboItemList'][0]['code'],'drink')
+        self.assertNotIn('withOrder',next(a for n,a in app.CLIENT.calls if n=='calculate-price'))
+    def test_missing_default_round_rejects_quote(self):
+        app.STATE['catalog']['1'].pop('item');app.DETAILS.clear()
+        class BrokenDetail:
+            def call(self,name,args):
+                if name=='query-meal-detail':return {'data':{'code':'1','rounds':[{'id':1,'minQuantity':1,'maxQuantity':1,'choices':[]}]}}
+                raise AssertionError('incomplete defaults must not be quoted')
+        app.CLIENT=BrokenDetail()
+        with self.assertRaises(app.MCPError):app.official(['1'])
+    def test_missing_default_modification_quantity_is_rejected(self):
+        app.STATE['catalog']['1'].pop('item');app.DETAILS.clear()
+        class MissingQuantity:
+            def call(self,name,args):
+                if name=='query-meal-detail':return {'data':{'code':'1','supportModify':True,'modification':{'items':[{'values':[{'code':'m1','selectedKey':'on'}]}]}}}
+                raise AssertionError('missing default must not reach price calculation')
+        app.CLIENT=MissingQuantity()
+        with self.assertRaises(app.MCPError):app.official(['1'])
+    def test_large_menu_search_keeps_pool_tail_and_bounds_quotes(self):
+        import time
+        base=copy.deepcopy(app.STATE['catalog']['1']);catalog={}
+        for i in range(250):
+            f=copy.deepcopy(base);f.update(id=str(i),name=f'food{i}',price=500,foodNames=[f'food{i}']);f['item']['productCode']=str(i);catalog[str(i)]=f
+        app.STATE['catalog']=catalog
+        class CountMCP(FakeMCP):
+            def __init__(self):super().__init__();self.calls=0
+            def call(self,name,args):self.calls+=1;return super().call(name,args)
+        app.CLIENT=CountMCP();start=time.monotonic();result=app.plan({'budget':25,'mandatory':['249'],'added':['248']})
+        self.assertTrue(result['valid']);self.assertTrue({'249','248'}<=set(result['options']['meal']['ids']))
+        self.assertLessEqual(app.CLIENT.calls,7);self.assertLess(time.monotonic()-start,2)
+
 class HTTPTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):

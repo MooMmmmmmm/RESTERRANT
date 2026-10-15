@@ -75,7 +75,7 @@ class MCP:
         return (message['result'], session) if initialize else message['result']
 
     def call(self, name, args):
-        if name not in {'query-meals','query-store-coupons','calculate-price'}:
+        if name not in {'query-meals','query-store-coupons','query-meal-detail','calculate-price'}:
             raise MCPError('该功能未获授权')
         result = self.rpc('tools/call', {'name':name,'arguments':args})
         structured = result.get('structuredContent')
@@ -92,6 +92,67 @@ class MCP:
 
 CLIENT = None
 ARGS = {'beType':1,'orderType':1}
+DETAILS = {}
+
+def default_modification(data):
+    values = []
+    if data.get('supportModify') and not (data.get('modification') or {}).get('items'):
+        raise MCPError('餐品默认特调资料不完整')
+    for group in (data.get('modification') or {}).get('items', []):
+        for option in group.get('values', []):
+            quantity = option.get('selectedQuantity')
+            if type(quantity) is not int or quantity < 0:
+                raise MCPError('默认特调数量缺失或无效')
+            key = option.get('selectedKey') if quantity else option.get('unselectedKey')
+            if quantity and not key:
+                raise MCPError('默认特调选项不完整')
+            if key:
+                values.append({'code':option['code'],'key':key,'quantity':quantity if quantity else 1})
+    return {'values':values} if values else None
+
+def ensure_item(code):
+    food = STATE['catalog'][code]
+    if 'item' in food:
+        return food['item']
+    key = (ARGS.get('storeCode'), code)
+    detail = DETAILS.get(key)
+    if detail is None:
+        detail = CLIENT.call('query-meal-detail', {**ARGS,'code':code})['data']
+    if str(detail.get('code')) != code:
+        raise MCPError('详情未匹配所选食品')
+    if detail.get('supportModify') and not (detail.get('modification') or {}).get('items'):
+        raise MCPError('餐品默认特调资料不完整')
+    item = {'productCode':code,'quantity':1}
+    modification = default_modification(detail)
+    if modification:
+        item['modification'] = modification
+    contents, rounds = [], []
+    for row in detail.get('rounds', []):
+        choices = []
+        for choice in row.get('choices', []):
+            if choice.get('isDefault') != 1:
+                continue
+            quantity = choice.get('quantity')
+            if type(quantity) is not int or quantity < 1:
+                raise MCPError('套餐默认数量不明确，请另选餐品')
+            part = {'code':choice['code'],'quantity':quantity}
+            modification = default_modification(choice)
+            if modification:
+                part['modification'] = modification
+            choices.append(part)
+            contents.extend([choice['name']]*quantity)
+        count = sum(part['quantity'] for part in choices)
+        minimum,maximum = row.get('minQuantity'),row.get('maxQuantity')
+        if type(minimum) is not int or type(maximum) is not int or not minimum <= count <= maximum:
+            raise MCPError('套餐默认组成不完整，请另选餐品')
+        if choices:
+            rounds.append({'round':str(row['id']),'comboItemList':choices})
+    if rounds:
+        item['roundList'] = rounds
+    food.update(item=item,contents=contents,supportModify=bool(detail.get('supportModify')),
+                foodNames=contents or [food['name']])
+    DETAILS[key] = copy.deepcopy(detail)
+    return item
 
 def refresh():
     menu = CLIENT.call('query-meals', ARGS)
@@ -106,40 +167,48 @@ def refresh():
         for product in coupon.get('products', []):
             available_coupons.setdefault(product['productCode'], []).append(coupon)
     catalog = {}
+    seeds = {food['id']:food for food in SEED['catalog']}
+    categories = {}
+    for category in menu['data'].get('categories', []):
+        for meal in category.get('meals', []):
+            categories.setdefault(str(meal['code']), category['name'])
+    for code, meal in current.items():
+        food = copy.deepcopy(seeds.get(code, {}))
+        def amount(field):
+            value = meal.get(field)
+            return int(Decimal(str(value))*100) if value is not None else None
+        category = food.get('category') or categories.get(code, '其他')
+        image = meal.get('image', '')
+        if not image.startswith('https://menu-img.mcd.cn/'):
+            image = ''
+        food.update(id=code,name=meal['name'],category=category,
+                    price=amount('currentPrice'),original=amount('originalPrice'),
+                    image='/assets/'+SOURCES[code] if code in SOURCES else image,
+                    selectable=True,
+                    availabilityLabel='有随单购选项；本版按不购卡核价' if meal.get('canWithOrder') else '',
+                    couponOnly=False,supportModify=food.get('supportModify',False),
+                    contents=food.get('contents',[]),types=food.get('types',[category]))
+        food['foodNames'] = food['contents'] or [food['name']]
+        catalog[code] = food
     for seed in SEED['catalog']:
         code = seed['id']
-        if code not in current and code not in available_coupons:
+        if code in catalog or code not in available_coupons:
             continue
         food = copy.deepcopy(seed)
         food['couponOnly'] = code not in current
-        if code in current:
-            if current[code].get('canWithOrder'):
-                continue
-            food['price'] = int(Decimal(current[code]['currentPrice']) * 100)
-            food['original'] = int(Decimal(current[code]['originalPrice']) * 100)
         food['image'] = '/assets/' + SOURCES[code]
         food['types'] = ['主食','饮品'] if food['category'] == '优惠' else [food['category']]
         food['foodNames'] = food['contents'] or [food['name']]
         catalog[code] = food
     STATE.update(catalog=catalog,coupons=available_coupons,time=menu['datetime'])
     for code, food in catalog.items():
-        if not isinstance(food['price'],int) or food['price'] <= 0:
+        if food.get('couponOnly') and (not isinstance(food['price'],int) or food['price'] <= 0):
             quote = official([code])
             food['price'], food['original'] = quote['price'], quote['original']
-    # Bound local search while preserving variety. Selected unavailable items are rejected, never silently removed.
-    limits = {'主食':6,'配餐':4,'饮品':4,'甜品':2,'优惠':2}
-    chosen = {}
-    for category, limit in limits.items():
-        group = [f for f in catalog.values() if f['category'] == category]
-        group.sort(key=lambda f:(f['price'],f['id']))
-        for food in group[:limit]:
-            chosen[food['id']] = food
-    catalog = chosen
-    STATE.update(catalog=catalog,coupons=available_coupons,time=menu['datetime'])
 
 def public_catalog():
-    fields = ['id','name','category','image','price','original','supportModify','contents','types']
-    return {'store':{'name':'本机所选门店'},'time':STATE['time'],'foods':[{key:food[key] for key in fields} for food in STATE['catalog'].values()]}
+    fields = ['id','name','category','image','price','original','supportModify','contents','types','selectable','availabilityLabel']
+    return {'store':{'name':'本机所选门店'},'time':STATE['time'],'foods':[{key:food[key] for key in fields if key in food} for food in STATE['catalog'].values()]}
 
 def official(ids):
     choices = [([] if STATE['catalog'][code].get('couponOnly') else [None])+STATE['coupons'].get(code,[]) for code in ids]
@@ -149,7 +218,9 @@ def official(ids):
     for coupons in itertools.product(*choices):
         items, titles = [], []
         for code, coupon in zip(ids,coupons):
-            item = copy.deepcopy(STATE['catalog'][code]['item'])
+            if not STATE['catalog'][code].get('selectable', True):
+                raise MCPError('所选食品需额外权益，本版不购买权益')
+            item = copy.deepcopy(ensure_item(code))
             if coupon:
                 item.update(couponId=coupon['couponId'],couponCode=coupon['couponCode'])
                 titles.append(coupon['title'])
@@ -190,40 +261,45 @@ def plan(body):
     fixed = list(dict.fromkeys(mandatory + added))
     if budget < 100:
         return {'valid':False,'reason':'请输入至少1元的有效预算。',**public_catalog()}
-    if any(code not in catalog for code in fixed):
+    if any(code not in catalog or not catalog[code].get('selectable', True) for code in fixed):
         return {'valid':False,'reason':'某个必吃或锁定餐品当前已不可用。请主动修改选择，没有自动删品。',**public_catalog()}
-    if not catalog:
+    selectable = {code:food for code,food in catalog.items() if food.get('selectable', True)}
+    if not selectable:
         return {'valid':False,'reason':'本轮没有可用餐品，请稍后重试。',**public_catalog()}
-    saved = official(fixed) if fixed else official([min(catalog, key=lambda code:catalog[code]['price'])])
-    pool = [code for code in catalog if code not in fixed]
+    saved = official(fixed) if fixed else official([min(selectable, key=lambda code:selectable[code]['price'] if isinstance(selectable[code]['price'],int) else float('inf'))])
+    pool = [code for code in selectable if code not in fixed and isinstance(catalog[code]['price'],int) and catalog[code]['price'] > 0]
     previous = set(body.get('previous',[]))
     candidates, best_score, overflow = [], (-1,-1), []
-    def walk(start, picks, amount):
-        nonlocal best_score, candidates
-        ids = fixed + picks
-        if ids:
-            types = set().union(*(set(catalog[code]['types']) for code in ids))
-            names = set().union(*(set(catalog[code]['foodNames']) for code in ids))
-            score = (len(types),len(names))
-            if amount > budget:
-                overflow.append((amount,-score[0],-score[1],ids))
-                overflow.sort(key=lambda x:x[:3])
+    # Fixed effort per menu item: never enumerate all subsets of a full menu.
+    for _ in range(96):
+        shuffled = random.sample(pool,len(pool))
+        picks, amount = [], saved['price'] if fixed else 0
+        for code in shuffled:
+            ids = fixed + picks + [code]
+            if len(ids)>30:
+                break
+            total = amount + catalog[code]['price']
+            if total > budget:
+                overflow.append((total,ids))
+                overflow.sort(key=lambda x:x[0])
                 del overflow[3:]
-            elif score > best_score:
-                best_score, candidates = score, [ids]
-            elif score == best_score:
+                continue
+            picks.append(code)
+            amount = total
+        ids = fixed + picks
+        if ids and amount <= budget:
+            score = (len(set().union(*(set(catalog[code]['types']) for code in ids))),len(set().union(*(set(catalog[code]['foodNames']) for code in ids))))
+            if score > best_score:
+                best_score,candidates = score,[ids]
+            elif score == best_score and ids not in candidates:
                 candidates.append(ids)
-        for index in range(start,len(pool)):
-            code = pool[index]
-            walk(index+1,picks+[code],amount+catalog[code]['price'])
-    walk(0, [], saved['price'] if fixed else 0)
     alternatives = [ids for ids in candidates if set(ids) != previous]
     random.shuffle(alternatives)
     if not alternatives:
         alternatives = candidates
         random.shuffle(alternatives)
     valid = [saved] if saved['price'] <= budget else []
-    checks = alternatives[:2] + [x[3] for x in overflow[:1]]
+    checks = alternatives[:2] + [x[1] for x in overflow[:1]]
     if not valid:
         checks = [fixed+[code] for code in sorted(pool,key=lambda code:catalog[code]['price'])[:3]] + checks
     checked = {frozenset(saved['ids'])}
@@ -242,7 +318,7 @@ def plan(body):
     def rank(quote):
         return (len(set().union(*(set(catalog[code]['types']) for code in quote['ids']))),len(set().union(*(set(catalog[code]['foodNames']) for code in quote['ids']))))
     rich = max(valid,key=rank)
-    return {'valid':True,'options':{'meal':rich},'scope':'本轮至多18项默认售卖单位；实际方案已做官方试算，未声称全菜单最优',**public_catalog()}
+    return {'valid':True,'options':{'meal':rich},'scope':'菜单全量展示；本地有界候选搜索及有限官方试算，不承诺全店最优',**public_catalog()}
 
 def confirm(body):
     if not isinstance(body,dict):
