@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "python": "3.12.10",
+  "real_entrypoint": true,
+  "http_static": 3,
+  "plan_preserves_mandatory_and_locks": true,
+  "confirm_same_cart": true,
+  "private_paths_blocked": 4,
+  "foreign_origin_blocked": true,
+  "test_mcp_only": true,
+  "real_mcp_called": false,
+  "credentials_read": false
+}

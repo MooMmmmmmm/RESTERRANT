@@ -1,0 +1,692 @@
+{
+  "time": "2026-10-13 08:01:38",
+  "catalog": [
+    {
+      "id": "5022",
+      "name": "猪柳蛋麦满分",
+      "category": "主食",
+      "image": "https://menu-img.mcd.cn/pcm/prod/menu/20250709/product/MS_5022_320.png",
+      "price": 1800,
+      "original": 1800,
+      "supportModify": true,
+      "contents": [],
+      "item": {
+        "productCode": "5022",
+        "quantity": 1,
+        "modification": {
+          "values": [
+            {
+              "code": "100141",
+              "key": "0-1",
+              "quantity": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "5888",
+      "name": "吉士蛋麦满分",
+      "category": "主食",
+      "image": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_5888_320.png",
+      "price": 1000,
+      "original": 1000,
+      "supportModify": true,
+      "contents": [],
+      "item": {
+        "productCode": "5888",
+        "quantity": 1,
+        "modification": {
+          "values": [
+            {
+              "code": "100136",
+              "key": "0-1",
+              "quantity": 1
+            },
+            {
+              "code": "100141",
+              "key": "0-1",
+              "quantity": 1
+            },
+            {
+              "code": "100214",
+              "key": "0-1",
+              "quantity": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "5889",
+      "name": "大脆鸡扒麦满分",
+      "category": "主食",
+      "image": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_5889_320.png",
+      "price": 1100,
+      "original": 1100,
+      "supportModify": true,
+      "contents": [],
+      "item": {
+        "productCode": "5889",
+        "quantity": 1,
+        "modification": {
+          "values": [
+            {
+              "code": "100136",
+              "key": "0-1",
+              "quantity": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "521981",
+      "name": "巧克力味厚松饼猪柳蛋堡",
+      "category": "主食",
+      "image": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_521981_320.png",
+      "price": 2200,
+      "original": 2200,
+      "supportModify": true,
+      "contents": [],
+      "item": {
+        "productCode": "521981",
+        "quantity": 1,
+        "modification": {
+          "values": [
+            {
+              "code": "100141",
+              "key": "0-1",
+              "quantity": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "521989",
+      "name": "枫糖风味厚松饼猪柳蛋堡",
+      "category": "主食",
+      "image": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_521989_320.png",
+      "price": 2200,
+      "original": 2200,
+      "supportModify": true,
+      "contents": [],
+      "item": {
+        "productCode": "521989",
+        "quantity": 1,
+        "modification": {
+          "values": [
+            {
+              "code": "100141",
+              "key": "0-1",
+              "quantity": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "1254",
+      "name": "火腿扒麦满分",
+      "category": "主食",
+      "image": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_1254_320.png",
+      "price": 1000,
+      "original": 1000,
+      "supportModify": true,
+      "contents": [],
+      "item": {
+        "productCode": "1254",
+        "quantity": 1,
+        "modification": {
+          "values": [
+            {
+              "code": "100168",
+              "key": "0-1",
+              "quantity": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "4825",
+      "name": "脆薯饼",
+      "category": "配餐",
+      "image": "https://menu-img.mcd.cn/pcm/prod/menu/20250506/product/MS_4825_320_1745825068180.png",
+      "price": 850,
+      "original": 850,
+      "supportModify": false,
+      "contents": [],
+      "item": {
+        "productCode": "4825",
+        "quantity": 1
+      }
+    },
+    {
+      "id": "2631",
+      "name": "脆香油条",
+      "category": "配餐",
+      "image": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_2631_320.png",
+      "price": 850,
+      "original": 850,
+      "supportModify": false,
+      "contents": [],
+      "item": {
+        "productCode": "2631",
+        "quantity": 1
+      }
+    },
+    {
+      "id": "4437",
+      "name": "小杯玉米杯",
+      "category": "配餐",
+      "image": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_G4437_320.png",
+      "price": 1300,
+      "original": 1300,
+      "supportModify": false,
+      "contents": [],
+      "item": {
+        "productCode": "4437",
+        "quantity": 1
+      }
+    },
+    {
+      "id": "505235",
+      "name": "德式图林根香肠",
+      "category": "配餐",
+      "image": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_505235_320.png",
+      "price": 950,
+      "original": 950,
+      "supportModify": false,
+      "contents": [],
+      "item": {
+        "productCode": "505235",
+        "quantity": 1
+      }
+    },
+    {
+      "id": "1088",
+      "name": "优品豆浆小杯",
+      "category": "饮品",
+      "image": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_1088_320.png",
+      "price": 950,
+      "original": 950,
+      "supportModify": false,
+      "contents": [],
+      "item": {
+        "productCode": "1088",
+        "quantity": 1
+      }
+    },
+    {
+      "id": "3755",
+      "name": "纯牛奶(盒装)",
+      "category": "饮品",
+      "image": "https://menu-img.mcd.cn/pcm/prod/menu/20240731/product/MS_3755_320.png",
+      "price": 1050,
+      "original": 1050,
+      "supportModify": false,
+      "contents": [],
+      "item": {
+        "productCode": "3755",
+        "quantity": 1
+      }
+    },
+    {
+      "id": "507328",
+      "name": "麦咖啡™热奶铁中杯",
+      "category": "饮品",
+      "image": "https://menu-img.mcd.cn/pcm/prod/menu/20250521/product/MS_507328_320.png",
+      "price": 1390,
+      "original": 2100,
+      "supportModify": true,
+      "contents": [],
+      "item": {
+        "productCode": "507328",
+        "quantity": 1,
+        "modification": {
+          "values": [
+            {
+              "code": "8008",
+              "key": "0-0",
+              "quantity": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "507368",
+      "name": "麦咖啡™热美式中杯",
+      "category": "饮品",
+      "image": "https://menu-img.mcd.cn/pcm/prod/menu/20250521/product/MS_507368_320.png",
+      "price": 1190,
+      "original": 1900,
+      "supportModify": true,
+      "contents": [],
+      "item": {
+        "productCode": "507368",
+        "quantity": 1,
+        "modification": {
+          "values": [
+            {
+              "code": "8008",
+              "key": "0-0",
+              "quantity": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "515837",
+      "name": "圆筒冰淇淋",
+      "category": "甜品",
+      "image": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_515837_320.png",
+      "price": 500,
+      "original": 500,
+      "supportModify": false,
+      "contents": [],
+      "item": {
+        "productCode": "515837",
+        "quantity": 1
+      }
+    },
+    {
+      "id": "9900008752",
+      "name": "派",
+      "category": "甜品",
+      "image": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_G9900008752_320.gif",
+      "price": 850,
+      "original": 850,
+      "supportModify": false,
+      "contents": [
+        "菠萝派"
+      ],
+      "item": {
+        "productCode": "9900008752",
+        "quantity": 1,
+        "roundList": [
+          {
+            "round": "1",
+            "comboItemList": [
+              {
+                "code": "4105",
+                "quantity": 1
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "513606",
+      "name": "雪菜脆笋鸡肉粥",
+      "category": "主食",
+      "image": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_G513606_320.gif",
+      "price": 750,
+      "original": 750,
+      "supportModify": false,
+      "contents": [],
+      "item": {
+        "productCode": "513606",
+        "quantity": 1
+      }
+    },
+    {
+      "id": "9900016335",
+      "name": "芝香脆鸡扒堡早餐两件套",
+      "category": "优惠",
+      "image": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_9900016335_600.png",
+      "price": 990,
+      "original": 990,
+      "supportModify": false,
+      "contents": [
+        "芝香脆鸡扒堡",
+        "鲜萃冰咖"
+      ],
+      "item": {
+        "productCode": "9900016335",
+        "quantity": 1,
+        "roundList": [
+          {
+            "round": "1",
+            "comboItemList": [
+              {
+                "code": "522000",
+                "quantity": 1,
+                "modification": {
+                  "values": [
+                    {
+                      "code": "100141",
+                      "key": "0-1",
+                      "quantity": 1
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "round": "2",
+            "comboItemList": [
+              {
+                "code": "521327",
+                "quantity": 1
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "1100",
+      "name": "巨无霸",
+      "category": "主食",
+      "image": "https://menu-img.mcd.cn/pcm/prod/menu/20250611/product/MS_1100_600_1749175370846.png",
+      "price": 2550,
+      "original": 2550,
+      "supportModify": true,
+      "contents": [],
+      "item": {
+        "productCode": "1100",
+        "quantity": 1,
+        "modification": {
+          "values": [
+            {
+              "code": "100116",
+              "key": "0-1",
+              "quantity": 1
+            },
+            {
+              "code": "100141",
+              "key": "0-1",
+              "quantity": 1
+            },
+            {
+              "code": "100168",
+              "key": "0-1",
+              "quantity": 1
+            },
+            {
+              "code": "100202",
+              "key": "0-1",
+              "quantity": 1
+            },
+            {
+              "code": "100212",
+              "key": "0-1",
+              "quantity": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "1120",
+      "name": "双层吉士汉堡",
+      "category": "主食",
+      "image": "https://menu-img.mcd.cn/pcm/prod/menu/20260101/product/MS_1120_600.png",
+      "price": 2300,
+      "original": 2300,
+      "supportModify": true,
+      "contents": [],
+      "item": {
+        "productCode": "1120",
+        "quantity": 1,
+        "modification": {
+          "values": [
+            {
+              "code": "100141",
+              "key": "0-1",
+              "quantity": 1
+            },
+            {
+              "code": "100202",
+              "key": "0-1",
+              "quantity": 1
+            },
+            {
+              "code": "100212",
+              "key": "0-1",
+              "quantity": 1
+            },
+            {
+              "code": "100214",
+              "key": "0-1",
+              "quantity": 1
+            },
+            {
+              "code": "102230",
+              "key": "0-1",
+              "quantity": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "1406",
+      "name": "板烧鸡腿堡",
+      "category": "主食",
+      "image": "https://menu-img.mcd.cn/pcm/prod/menu/20241008/product/MS_1406_600.png",
+      "price": 2350,
+      "original": 2350,
+      "supportModify": true,
+      "contents": [],
+      "item": {
+        "productCode": "1406",
+        "quantity": 1,
+        "modification": {
+          "values": [
+            {
+              "code": "102201",
+              "key": "0-1",
+              "quantity": 1
+            },
+            {
+              "code": "120512",
+              "key": "0-1",
+              "quantity": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "1440",
+      "name": "麦辣鸡腿汉堡",
+      "category": "主食",
+      "image": "https://menu-img.mcd.cn/pcm/prod/menu/20250420/product/MS_1440_600_0_1744772198163.png",
+      "price": 2250,
+      "original": 2250,
+      "supportModify": true,
+      "contents": [],
+      "item": {
+        "productCode": "1440",
+        "quantity": 1,
+        "modification": {
+          "values": [
+            {
+              "code": "100136",
+              "key": "0-1",
+              "quantity": 1
+            },
+            {
+              "code": "120512",
+              "key": "0-1",
+              "quantity": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "1450",
+      "name": "麦香鸡",
+      "category": "主食",
+      "image": "https://menu-img.mcd.cn/pcm/prod/menu/20260520/product/MS_1450_600.png",
+      "price": 1700,
+      "original": 1700,
+      "supportModify": true,
+      "contents": [],
+      "item": {
+        "productCode": "1450",
+        "quantity": 1,
+        "modification": {
+          "values": [
+            {
+              "code": "100136",
+              "key": "0-1",
+              "quantity": 1
+            },
+            {
+              "code": "100168",
+              "key": "0-1",
+              "quantity": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "1600",
+      "name": "麦香鱼",
+      "category": "主食",
+      "image": "https://menu-img.mcd.cn/pcm/prod/menu/20260520/product/MS_1600_600.png",
+      "price": 2250,
+      "original": 2250,
+      "supportModify": true,
+      "contents": [],
+      "item": {
+        "productCode": "1600",
+        "quantity": 1,
+        "modification": {
+          "values": [
+            {
+              "code": "100126",
+              "key": "0-1",
+              "quantity": 1
+            },
+            {
+              "code": "100141",
+              "key": "0-1",
+              "quantity": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "1401",
+      "name": "麦乐鸡5块",
+      "category": "配餐",
+      "image": "https://menu-img.mcd.cn/pcm/prod/menu/20260529/product/MS_1401_600.png",
+      "price": 1400,
+      "original": 1400,
+      "supportModify": false,
+      "contents": [],
+      "item": {
+        "productCode": "1401",
+        "quantity": 1
+      }
+    },
+    {
+      "id": "1700",
+      "name": "麦辣鸡翅2块",
+      "category": "配餐",
+      "image": "https://menu-img.mcd.cn/pcm/prod/menu/20260219/product/MS_1700_600.png",
+      "price": 1500,
+      "original": 1500,
+      "supportModify": false,
+      "contents": [],
+      "item": {
+        "productCode": "1700",
+        "quantity": 1
+      }
+    },
+    {
+      "id": "4810",
+      "name": "中薯条",
+      "category": "配餐",
+      "image": "https://menu-img.mcd.cn/pcm/prod/menu/20250423/product/MS_4810_600_1745199801147.png",
+      "price": 1350,
+      "original": 1350,
+      "supportModify": false,
+      "contents": [],
+      "item": {
+        "productCode": "4810",
+        "quantity": 1
+      }
+    },
+    {
+      "id": "520689",
+      "name": "小杯鲜萃咖啡",
+      "category": "饮品",
+      "image": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_520689_600.png",
+      "price": 950,
+      "original": 950,
+      "supportModify": true,
+      "contents": [],
+      "item": {
+        "productCode": "520689",
+        "quantity": 1,
+        "modification": {
+          "values": [
+            {
+              "code": "120519",
+              "key": "0-1",
+              "quantity": 1
+            },
+            {
+              "code": "120520",
+              "key": "0-1",
+              "quantity": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "515280",
+      "name": "阳光柠檬红茶小杯",
+      "category": "饮品",
+      "image": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_515280_600.png",
+      "price": 950,
+      "original": 950,
+      "supportModify": true,
+      "contents": [],
+      "item": {
+        "productCode": "515280",
+        "quantity": 1,
+        "modification": {
+          "values": [
+            {
+              "code": "200002",
+              "key": "0-1",
+              "quantity": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "521156",
+      "name": "那么大鸡排（椒盐风味）",
+      "category": "配餐",
+      "image": "https://menu-img.mcd.cn/pcm/prod/menu/20260520/product/MS_521156_600.png",
+      "price": 1400,
+      "original": 1400,
+      "supportModify": false,
+      "contents": [],
+      "item": {
+        "productCode": "521156",
+        "quantity": 1
+      }
+    }
+  ],
+  "couponTitles": [
+    "芝香脆鸡扒堡早餐两件套"
+  ]
+}

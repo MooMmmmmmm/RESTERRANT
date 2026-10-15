@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "steps": 2,
+  "realRequests": 4,
+  "cart": [
+    "1450",
+    "521156",
+    "520689",
+    "9900008752"
+  ],
+  "price": 4900,
+  "time": "2026-10-14 11:27:51",
+  "confirmExactCart": true,
+  "errors": []
+}

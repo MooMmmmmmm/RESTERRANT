@@ -1,0 +1,29 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="description" content="麦麦搭配局：预算内搭配与真实MCP核价；确认餐单，不下单。"><title>麦麦搭配局 · 个人真实核价版</title><link rel="stylesheet" href="/live-demo.css"></head><body><div id="meal-machine-v4"><main class="mm-app">
+<header class="mm-nav"><div class="mm-brand">麦麦<span>搭配局</span></div><span class="mm-tag">真实核价 · 不下单</span></header>
+<div class="mm-location"><span>⌖ 所选门店 · 到店取餐</span><button id="mm-store-info" aria-label="查看门店与核价信息">详情</button></div>
+<nav class="mm-steps" aria-label="搭配步骤"><button data-step="setup" aria-current="step"><i>1</i>选餐条件</button><button data-step="machine"><i>2</i>搭配与确认</button></nav>
+<div class="mm-content">
+<section id="mm-setup" class="mm-view" aria-label="选择搭配条件">
+<div class="mm-hero"><h2>想吃的留住，<br>剩下的交给惊喜。</h2><p>预算内，发现今天的新搭配。</p><img referrerpolicy="no-referrer" id="mm-hero-food" alt="麦当劳餐品照片"></div>
+<div class="mm-controls"><div class="mm-budgetbox"><div><label for="mm-budget"><span class="mm-zone-number">01</span> 设定预算</label></div><div class="mm-amount">¥<input id="mm-budget" type="number" min="1" max="200" value="35" step="0.01" inputmode="decimal" aria-label="预算，单位元"></div></div><div class="mm-budget-track"><input id="mm-budget-range" type="range" min="1" max="200" value="35" aria-label="拖动设置预算"><span>拖动调预算，或直接输入金额</span></div></div>
+<div class="mm-locked"><div class="mm-sectionhead"><span><span class="mm-zone-number">02</span> 选你必吃的</span> <button id="mm-open-picker">挑食品 ＋</button></div><div class="mm-locklist" id="mm-locks"></div><div class="mm-quick" id="mm-quick"></div></div>
+
+</section>
+<section id="mm-machine-view" class="mm-view" aria-label="摇出搭配" hidden>
+<div class="mm-page-title"><h2>拉一下，今天吃什么？</h2><p id="mm-machine-summary">预算 ¥35 · 保留你的必吃</p></div>
+
+<div class="mm-machine-wrap"><div class="mm-machine"><div class="mm-machine-top"><span class="mm-machinetitle">麦麦惊喜机</span><small id="mm-batch-label">惊喜窗口</small></div><div class="mm-frame"><div class="mm-reels" id="mm-reels"></div></div><div class="mm-machine-bottom"><span id="mm-held-note">锁定食品保持不动</span><b id="mm-mode-label">丰富模式</b></div><div class="mm-machine-trim" aria-hidden="true"><span></span><span></span><span></span></div></div><button class="mm-lever" id="mm-lever" aria-label="向下拉动摇杆，随机搭配"><span class="mm-lever-hub"></span><span class="mm-lever-arm"><span class="mm-lever-rod"></span><span class="mm-lever-knob"></span></span><span class="mm-lever-label">下拉开摇</span></button></div>
+<div class="mm-preview"><span id="mm-preview-count">搭配已完成</span><button id="mm-view-result">查看完整餐单 →</button></div>
+<div class="mm-peek" id="mm-peek"></div></section>
+
+</div>
+<footer class="mm-action"><p class="mm-status" id="mm-status" aria-live="polite"></p><div class="mm-alert" id="mm-alert" role="alert" hidden><div id="mm-alert-text"></div><div class="mm-rescue"><button id="mm-unlock">解锁后来选的</button><button id="mm-focus-budget">调整预算</button></div></div><div class="mm-action-buttons"><button class="mm-reroll" id="mm-reroll" hidden>重摇其余</button><button class="mm-go" id="mm-go">开始搭配 <span>→</span></button></div></footer>
+<dialog id="mm-cart-dialog" class="mm-cart-dialog"><div class="mm-checkout-head"><b>确认真实餐单</b><button id="mm-close-cart" aria-label="返回搭配">×</button></div><section id="mm-result" class="mm-view" aria-label="完整套餐与优惠" hidden>
+<div class="mm-page-title"><h2>确认这份套餐</h2><p>确认餐单，不代表下单；购买时去官方渠道。</p></div>
+<div class="mm-total"><div class="mm-total-label"><b>官方试算应付</b><span id="mm-left">等待核价</span></div><div class="mm-total-price"><small>¥</small><span id="mm-total">—</span></div></div>
+<div class="mm-fullmeal"><div class="mm-sectionhead">完整餐单 <small id="mm-meal-count"></small></div><div class="mm-mealgrid" id="mm-mealgrid"></div></div>
+<details class="mm-ticket" open><summary>揭晓本餐真实优惠 <span>以官方适用条件为准</span></summary><div class="mm-scratch"><div class="mm-confetti" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="mm-prize"><strong id="mm-prize-number">—</strong><p><span id="mm-prize-title">等待核价</span><br><b id="mm-saving">—</b></p></div><canvas id="mm-scratch" aria-hidden="true"></canvas></div><button class="mm-reveal" id="mm-reveal">点这里揭晓</button></details><p class="mm-hint" id="mm-quote-time" hidden>尚未核价</p>
+</section><p id="mm-confirm-message" class="mm-confirm-message" aria-live="polite"></p><div class="mm-checkout-action"><button id="mm-finish-demo">确认这份核价餐单</button></div></dialog><dialog class="mm-picker-dialog" id="mm-picker"><div class="mm-dialoghead"><div><b>挑几样，你最想吃的</b><p id="mm-catalog-count">读取菜单…</p></div><button id="mm-close-picker" aria-label="关闭食品选择">×</button></div><div class="mm-picker-body"><div class="mm-categories" id="mm-categories"></div><div class="mm-picks" id="mm-picks"></div></div><button class="mm-picker-done" id="mm-picker-done">选好了</button></dialog>
+<dialog class="mm-info-dialog" id="mm-info"><h3>本次搭配的依据</h3><div class="mm-store"><b>本机所选门店</b><p>门店信息仅在本机使用</p><small id="mm-store-time">正在读取菜单</small></div><p>食品按当前门店在售与可用优惠过滤。默认规格、完整套餐；候选有限，不宣称全店最优。</p><p>仅电脑本机运行，Token只在后端使用，不保存配餐历史。请求会发送到麦当劳MCP；图片服务仍可见请求IP。</p><button id="mm-close-info">知道了</button></dialog>
+</main></div>
+<script src="/live-demo.js"></script></body></html>

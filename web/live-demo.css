@@ -1,0 +1,301 @@
+#meal-machine-v4{--red:#ce262c;--yellow:#ffca08;--paper:#fff;--ink:#322017;--muted:#746c63;--line:#eae7e1;font-family:"Microsoft YaHei","PingFang SC",sans-serif;color:var(--ink);padding:12px 0 24px;color-scheme:light}
+#meal-machine-v4 *{box-sizing:border-box}#meal-machine-v4 button,#meal-machine-v4 input{font:inherit}#meal-machine-v4 button{touch-action:manipulation}#meal-machine-v4 button:disabled{opacity:.5}#meal-machine-v4 [hidden]{display:none!important}
+#meal-machine-v4 .mm-app{max-width:460px;margin:auto;background:#f6f5f2;border-radius:22px;overflow:hidden;box-shadow:0 16px 60px #38241518}
+#meal-machine-v4 .mm-nav{display:flex;justify-content:space-between;align-items:center;padding:19px 20px;background:#fff;gap:10px}#meal-machine-v4 .mm-brand{font-size:19px;font-weight:900;letter-spacing:-1px}#meal-machine-v4 .mm-brand span{color:var(--red)}#meal-machine-v4 .mm-tag{font-size:11px;color:var(--muted)}
+#meal-machine-v4 .mm-hero{margin:0;background:#ffcd17;position:relative;height:204px;padding:24px 20px;overflow:hidden}#meal-machine-v4 .mm-hero:before{content:"";position:absolute;bottom:0;left:0;right:0;height:10px;background:conic-gradient(#4c2516 25%,transparent 0 50%,#4c2516 0 75%,transparent 0) 0 0/20px 20px}#meal-machine-v4 .mm-eyebrow{font-size:11px;font-weight:700;letter-spacing:1px;position:relative;z-index:2}#meal-machine-v4 h2{position:relative;z-index:2;font-size:36px;line-height:1.16;font-weight:900;letter-spacing:-2px;margin:9px 0 12px;width:205px}#meal-machine-v4 h2 em{font-style:normal;color:#fff;background:#4c2516;box-decoration-break:clone;-webkit-box-decoration-break:clone;padding:0 5px}#meal-machine-v4 .mm-subtitle{position:relative;z-index:2;font-size:12px;line-height:1.65;margin:0;max-width:180px}#meal-machine-v4 .mm-hero-photo{position:absolute;right:-35px;bottom:8px;width:255px;height:191px;object-fit:contain;mix-blend-mode:multiply;transform:rotate(-10deg);pointer-events:none}#meal-machine-v4 .mm-burst{position:absolute;right:15px;top:18px;background:var(--red);color:#fff;transform:rotate(10deg);font-size:12px;font-weight:800;padding:13px 15px;clip-path:polygon(50% 0,60% 10%,80% 0,80% 22%,100% 25%,88% 42%,100% 60%,79% 65%,84% 89%,61% 83%,50% 100%,40% 84%,19% 94%,18% 71%,0 72%,9% 52%,0 34%,20% 30%,18% 8%,40% 13%)}
+#meal-machine-v4 .mm-controls{margin:14px 14px 0;padding:15px;background:#fff;border-radius:14px}#meal-machine-v4 .mm-budgetbox{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-bottom:12px;border-bottom:1px solid var(--line)}#meal-machine-v4 .mm-label{font-size:14px;font-weight:800}#meal-machine-v4 .mm-small{display:block;font-size:11px;color:var(--muted);margin-top:5px}#meal-machine-v4 .mm-amount{display:flex;align-items:center;font-weight:900;color:var(--red);font-size:20px;gap:4px}#meal-machine-v4 #mm-budget{width:78px;font-size:32px;font-weight:900;border:0;border-bottom:1px dashed #c7c2b6;background:transparent;color:var(--red);text-align:right;padding:0;appearance:textfield}#meal-machine-v4 #mm-budget::-webkit-inner-spin-button{appearance:none}
+#meal-machine-v4 .mm-picks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin-top:12px}#meal-machine-v4 .mm-pick{position:relative;display:flex;align-items:center;flex-direction:column;justify-content:center;gap:2px;min-width:0;border:1px solid var(--line);border-radius:9px;background:#fff;color:var(--ink);padding:5px 3px;font-size:11px;min-height:83px}#meal-machine-v4 .mm-pick img{width:64px;height:48px;object-fit:contain;mix-blend-mode:multiply}#meal-machine-v4 .mm-pick.active{background:#fff7d4;border-color:#e6b200}#meal-machine-v4 .mm-pick.active:after{content:"✓";position:absolute;top:4px;right:5px;background:var(--yellow);border-radius:50%;width:16px;height:16px;text-align:center;line-height:16px;font-weight:800}
+#meal-machine-v4 .mm-locked{padding:15px 20px}#meal-machine-v4 .mm-sectionhead{display:flex;flex-wrap:wrap;justify-content:space-between;gap:5px;align-items:center;margin-bottom:8px;font-size:13px;font-weight:800}#meal-machine-v4 .mm-sectionhead small{font-size:11px;font-weight:400;color:var(--muted)}#meal-machine-v4 .mm-locklist{display:flex;flex-wrap:wrap;gap:6px}#meal-machine-v4 .mm-lockchip{background:#fff2c7;border:0;border-radius:6px;min-height:44px;padding:8px 10px;font-size:12px;color:var(--ink)}#meal-machine-v4 .mm-lockchip b{margin-right:7px;color:#977200}#meal-machine-v4 .mm-lockchip.mandatory{background:#fff}#meal-machine-v4 .mm-lockchip.mandatory b{color:var(--red)}#meal-machine-v4 .mm-lockempty{font-size:12px;color:var(--muted)}
+#meal-machine-v4 .mm-machine-wrap{padding:0 20px 0 14px;position:relative}#meal-machine-v4 .mm-machine{background:linear-gradient(150deg,#6a3722,#3e2118);padding:16px 10px 12px;border-radius:18px;box-shadow:0 5px 0 #26160e;position:relative}#meal-machine-v4 .mm-machine-top{display:flex;justify-content:space-between;align-items:center;color:#fff5d6;margin:0 4px 12px;gap:6px}#meal-machine-v4 .mm-machinetitle{font-size:15px;font-weight:900}#meal-machine-v4 .mm-machine-top small{font-size:11px;color:#ffdd87}#meal-machine-v4 .mm-led{display:inline-block;width:6px;height:6px;background:var(--yellow);border-radius:50%;margin-right:5px}#meal-machine-v4 .mm-frame{background:#ffcf35;padding:4px;border-radius:11px;box-shadow:inset 0 2px 4px #513b1240}#meal-machine-v4 .mm-reels{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px}#meal-machine-v4 .mm-reel{background:#fff;border-radius:8px;padding:5px 2px 4px;text-align:center;overflow:hidden;min-width:0;position:relative}#meal-machine-v4 .mm-reel.held{background:#fff4ce}#meal-machine-v4 .mm-art{width:100%;height:87px;margin:auto;position:relative}#meal-machine-v4 .mm-art img{width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply}#meal-machine-v4 .mm-reel-name{font-size:11px;font-weight:800;line-height:1.35;min-height:30px;padding:0 2px}#meal-machine-v4 .mm-reel-price{font-size:11px;color:var(--muted);padding:4px 0 2px}#meal-machine-v4 .mm-reel-lock{width:100%;min-height:44px;border:0;border-radius:5px;background:#f5f3ee;color:#5a4a35;font-size:11px;padding:4px 1px}#meal-machine-v4 .mm-reel.held .mm-reel-lock{background:var(--yellow);color:var(--ink)}#meal-machine-v4 .mm-machine-bottom{display:flex;justify-content:space-between;align-items:center;margin:10px 5px 0;font-size:11px;color:#e5b997;gap:6px}#meal-machine-v4 .mm-machine-bottom b{color:#ffdc73;font-weight:700}#meal-machine-v4 .mm-empty{height:87px;display:flex;align-items:center;justify-content:center;font-size:26px;color:#d3c6ac}#meal-machine-v4 .mm-empty-label{font-size:11px;min-height:30px;color:var(--muted);padding-top:7px}#meal-machine-v4 .mm-lever{position:absolute;right:3px;top:74px;width:17px;height:91px;border:0;background:linear-gradient(90deg,#9d8a6d,#e6dcc7,#7d684a);border-radius:8px;transform-origin:bottom center;transition:transform .25s}#meal-machine-v4 .mm-lever:before{content:"";position:absolute;top:-8px;left:-3px;width:23px;height:23px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ffed8c,#ffbc00 70%);box-shadow:0 2px 0 #917000}#meal-machine-v4 .mm-lever.pulled{transform:rotate(24deg)}
+#meal-machine-v4 .mm-routes{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:19px 14px 10px}#meal-machine-v4 .mm-route{border:1px solid #e4e0d7;border-radius:12px;background:#fff;text-align:left;padding:12px;color:var(--ink);min-width:0}#meal-machine-v4 .mm-route[aria-pressed="true"]{background:#fff3bd;border-color:#e6b300}#meal-machine-v4 .mm-route-title{font-size:13px;font-weight:800;display:flex;justify-content:space-between;align-items:center;gap:4px}#meal-machine-v4 .mm-route-title span{font-size:10px;font-weight:400;color:var(--muted)}#meal-machine-v4 .mm-route-price{display:block;font-size:24px;font-weight:900;color:var(--red);margin:5px 0}#meal-machine-v4 .mm-route-note{display:block;font-size:11px;color:var(--muted)}
+#meal-machine-v4 .mm-action{padding:0 14px}#meal-machine-v4 .mm-go{display:flex;justify-content:space-between;align-items:center;width:100%;border:0;border-radius:28px;background:var(--yellow);color:var(--ink);font-size:17px;font-weight:800;min-height:54px;padding:12px 22px;box-shadow:0 3px 0 #dca700}#meal-machine-v4 .mm-go span{font-size:14px}#meal-machine-v4 .mm-status{font-size:11px;text-align:center;color:var(--muted);min-height:30px;line-height:1.6;margin:10px 0 5px}#meal-machine-v4 .mm-alert{background:#fff1ea;border:1px solid #edc0ae;padding:12px;border-radius:10px;font-size:12px;line-height:1.7;margin:5px 0 12px}#meal-machine-v4 .mm-rescue{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}#meal-machine-v4 .mm-rescue button{background:#fff;border:1px solid #dfb39f;border-radius:6px;color:var(--ink);font-size:12px;min-height:44px;padding:6px 12px}
+#meal-machine-v4 .mm-ticket{background:#fff;margin:7px 14px 0;padding:15px;border-radius:12px;border-top:4px solid var(--yellow)}#meal-machine-v4 .mm-tickethead{font-size:13px;font-weight:800;display:flex;justify-content:space-between;flex-wrap:wrap;gap:5px;margin-bottom:10px}#meal-machine-v4 .mm-tickethead span{font-size:11px;font-weight:400;color:var(--muted)}#meal-machine-v4 .mm-scratch{height:103px;position:relative;background:#fff4cb;border-radius:8px;overflow:hidden}#meal-machine-v4 .mm-prize{display:flex;justify-content:center;align-items:center;gap:19px;height:100%;color:var(--red)}#meal-machine-v4 .mm-prize strong{font-size:54px;line-height:1;font-weight:900}#meal-machine-v4 .mm-prize strong small{font-size:22px}#meal-machine-v4 .mm-prize p{font-size:13px;line-height:1.6;margin:0;color:var(--ink)}#meal-machine-v4 .mm-prize b{font-size:12px;color:var(--red)}#meal-machine-v4 #mm-scratch{position:absolute;inset:0;width:100%;height:100%;touch-action:none;border-radius:8px}#meal-machine-v4 .mm-reveal{border:0;background:transparent;color:var(--muted);font-size:11px;text-decoration:underline;padding:8px 0;min-height:44px}
+#meal-machine-v4 .mm-total{display:flex;justify-content:space-between;align-items:end;margin:14px 14px 0;padding:15px;background:#fff;border-radius:12px;gap:10px}#meal-machine-v4 .mm-total-label{font-size:11px;color:var(--muted)}#meal-machine-v4 .mm-total-label b{display:block;color:var(--ink);font-size:13px;margin-bottom:5px}#meal-machine-v4 .mm-total-price{font-size:32px;font-weight:900;color:var(--red);letter-spacing:-1px}#meal-machine-v4 .mm-total-price small{font-size:16px}#meal-machine-v4 .mm-footer{padding:14px 20px 22px;color:var(--muted);font-size:11px;line-height:1.7}
+#meal-machine-v4 .mm-spinning .mm-reel:not(.held) .mm-art{animation:mm-v3-spin .17s linear infinite}#meal-machine-v4 .mm-spinning .mm-reel:not(.held) .mm-reel-name{opacity:.35}@keyframes mm-v3-spin{0%{transform:translateY(-48px);filter:blur(1px);opacity:.1}50%{opacity:1}100%{transform:translateY(48px);filter:blur(1px);opacity:.1}}
+@media(max-width:360px){#meal-machine-v4 .mm-hero{padding-left:18px}#meal-machine-v4 h2{font-size:32px;width:185px}#meal-machine-v4 .mm-hero-photo{width:214px;height:170px;right:-43px;bottom:0}#meal-machine-v4 .mm-subtitle{max-width:158px}#meal-machine-v4 .mm-burst{right:10px;top:25px}#meal-machine-v4 .mm-route-title span{display:none}#meal-machine-v4 .mm-machine-top small{font-size:10px}#meal-machine-v4 .mm-machinetitle{font-size:14px}}
+@media(prefers-reduced-motion:reduce){#meal-machine-v4 .mm-spinning .mm-art{animation:none!important}#meal-machine-v4 .mm-lever{transition:none}}
+
+#meal-machine-v4 .mm-cataloghead{font-size:13px;font-weight:800;margin:14px 0 9px;display:flex;justify-content:space-between;gap:8px}#meal-machine-v4 .mm-cataloghead small{font-size:11px;font-weight:400;color:var(--muted)}#meal-machine-v4 .mm-categories{display:flex;gap:6px;flex-wrap:wrap}#meal-machine-v4 .mm-category{border:0;border-radius:18px;padding:6px 10px;min-height:44px;font-size:12px;color:var(--muted);background:#f4f3ef}#meal-machine-v4 .mm-category[aria-pressed="true"]{background:var(--yellow);color:var(--ink);font-weight:800}#meal-machine-v4 .mm-pick{font-size:12px;min-height:97px}#meal-machine-v4 .mm-pick span{color:var(--muted);font-size:11px}#meal-machine-v4 .mm-pick.active{box-shadow:inset 0 0 0 1px #e6b200}
+#meal-machine-v4 .mm-machine-wrap{padding:0 48px 0 14px;position:relative}#meal-machine-v4 .mm-machine{border-radius:27px 27px 15px 15px;background:linear-gradient(150deg,#b8272d,#dd3a33 45%,#ad1b25);border:1px solid #a71f25;padding:20px 9px 9px;box-shadow:inset 0 2px 0 #ffffff65,inset 3px 0 0 #ffffff15,0 7px 0 #81222a,0 11px 12px #53291d1c}#meal-machine-v4 .mm-machine:before{content:"";position:absolute;left:18px;right:18px;top:8px;height:4px;border-radius:4px;background:linear-gradient(90deg,#ffcb34,#ffecb7,#ffcb34)}#meal-machine-v4 .mm-machine-top{margin:0 3px 12px;align-items:start;gap:5px}#meal-machine-v4 .mm-machinetitle{font-size:15px;letter-spacing:-.4px}#meal-machine-v4 .mm-machine-top small{font-size:11px;white-space:nowrap;color:#ffedb8;padding-top:2px}#meal-machine-v4 .mm-frame{padding:5px;border:1px solid #e8b437;border-radius:14px;background:linear-gradient(#ffe8a0,#e7ab27);box-shadow:0 3px 0 #821c24,inset 0 2px 2px #fff4cb}#meal-machine-v4 .mm-reels{gap:4px}#meal-machine-v4 .mm-reel{padding:0;background:linear-gradient(#e9e6df 0%,#fff 18%,#fff 82%,#e9e6df);height:158px;position:relative;border-radius:9px;box-shadow:inset 0 2px 8px #46281922}#meal-machine-v4 .mm-reel:after{content:"";position:absolute;pointer-events:none;inset:0;background:linear-gradient(#3e241321,transparent 23%,transparent 78%,#3e241315);border-radius:9px}#meal-machine-v4 .mm-symbol{height:158px;padding:13px 4px 8px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px}#meal-machine-v4 .mm-symbol img{width:100%;height:85px;object-fit:contain;mix-blend-mode:multiply}#meal-machine-v4 .mm-symbol strong{font-size:12px;font-weight:800;line-height:1.35;text-align:center;min-height:32px;display:flex;align-items:center;justify-content:center}#meal-machine-v4 .mm-symbol.empty strong{color:var(--muted);font-weight:400}#meal-machine-v4 .mm-symbol.empty span{font-size:32px;color:#c7baa5}#meal-machine-v4 .mm-reel.is-rolling img{filter:blur(.6px)}#meal-machine-v4 .mm-reel.is-settled{animation:mm-v4-stop .28s ease-out}#meal-machine-v4 .mm-machine-bottom{font-size:11px;margin:12px 3px 10px;color:#ffded0;flex-wrap:wrap;gap:4px}#meal-machine-v4 .mm-machine-bottom b{color:#fff1a5}#meal-machine-v4 .mm-machine-trim{height:12px;border-radius:7px;background:#91252c;display:flex;justify-content:center;gap:10px;align-items:center;box-shadow:inset 0 2px 2px #5b101d55}#meal-machine-v4 .mm-machine-trim span{width:5px;height:5px;background:#ffcf4e;border-radius:50%;box-shadow:0 0 3px #ffec99}#meal-machine-v4 .mm-machine.is-running .mm-machine-trim{background:#74272d}
+#meal-machine-v4 .mm-lever{position:absolute;right:0;top:44px;width:52px;height:168px;border:0;background:transparent;border-radius:0;transform:none;touch-action:none;opacity:1}#meal-machine-v4 .mm-lever:before{display:none}#meal-machine-v4 .mm-lever-hub{position:absolute;bottom:35px;left:0;width:30px;height:34px;border-radius:50%;background:radial-gradient(ellipse at 45% 35%,#f9ecbb,#bc9962 50%,#765941 72%);border:3px solid #dfbe7c;box-shadow:2px 3px 3px #49321c40}#meal-machine-v4 .mm-lever-arm{position:absolute;left:17px;bottom:50px;width:24px;height:100px;transform-origin:9px 100%;transform:rotate(8deg);transition:transform .22s cubic-bezier(.2,.8,.3,1)}#meal-machine-v4 .mm-lever-rod{position:absolute;bottom:0;left:4px;width:11px;height:85px;border-radius:5px;background:linear-gradient(90deg,#8b8f90,#faf7ed 35%,#dedbd3 56%,#8e9291);box-shadow:1px 0 1px #565746}#meal-machine-v4 .mm-lever-knob{position:absolute;left:-5px;top:0;width:29px;height:32px;border-radius:47%;background:radial-gradient(circle at 31% 24%,#ff8b78,#ec3a33 46%,#b12025 77%);border:1px solid #a62325;box-shadow:1px 3px 0 #8b2423,0 6px 9px #68141620}#meal-machine-v4 .mm-lever-knob:after{content:"";position:absolute;top:6px;left:6px;width:8px;height:4px;border-radius:50%;background:#ffe0c4aa;transform:rotate(-35deg)}#meal-machine-v4 .mm-lever.pulled .mm-lever-arm{transform:rotate(76deg)}#meal-machine-v4 .mm-lever-label{position:absolute;bottom:0;left:0;right:0;font-size:11px;color:#8d6651;text-align:center}#meal-machine-v4 .mm-lever:disabled{opacity:.45}
+#meal-machine-v4 .mm-fullmeal{margin:20px 14px 0;background:#fff;border-radius:14px;padding:14px}#meal-machine-v4 .mm-mealgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}#meal-machine-v4 .mm-mealitem{position:relative;border:1px solid var(--line);border-radius:10px;padding:8px;min-width:0;background:#fff}#meal-machine-v4 .mm-mealitem.is-held{background:#fff9dd;border-color:#ead48a}#meal-machine-v4 .mm-mealitem img{width:100%;height:74px;object-fit:contain;mix-blend-mode:multiply}#meal-machine-v4 .mm-mealitem strong{display:block;font-size:14px;line-height:1.4;font-weight:700;margin:4px 0}#meal-machine-v4 .mm-item-meta{font-size:11px;color:var(--muted);line-height:1.6}#meal-machine-v4 .mm-item-button{width:100%;border:0;border-radius:6px;min-height:44px;font-size:12px;background:#f4f2ed;color:var(--ink);padding:5px;margin-top:7px}#meal-machine-v4 .mm-item-button[aria-pressed="true"]{background:var(--yellow)}#meal-machine-v4 .mm-item-mandatory{display:block;min-height:44px;line-height:44px;text-align:center;font-size:12px;color:var(--red);font-weight:700;background:#fff0e6;border-radius:6px;margin-top:7px}#meal-machine-v4 .mm-mealitem.is-revealed{animation:mm-v4-reveal .35s ease-out}#meal-machine-v4 .mm-route-title span{display:none}#meal-machine-v4 .mm-busy-price{color:var(--muted)}#meal-machine-v4 .mm-pick,#meal-machine-v4 .mm-category,#meal-machine-v4 .mm-item-button,#meal-machine-v4 .mm-lever{transition:background .15s,opacity .15s}
+@keyframes mm-v4-stop{0%{transform:translateY(-3px)}60%{transform:translateY(2px)}100%{transform:translateY(0)}}@keyframes mm-v4-reveal{0%{background:#ffe396;transform:translateY(3px)}100%{transform:translateY(0)}}
+@media(max-width:360px){#meal-machine-v4 .mm-machinetitle{font-size:13px}#meal-machine-v4 .mm-symbol strong{font-size:12px}#meal-machine-v4 .mm-machine-wrap{padding-right:43px}#meal-machine-v4 .mm-lever{width:47px}#meal-machine-v4 .mm-category{padding:6px 8px}#meal-machine-v4 .mm-fullmeal{padding:11px}#meal-machine-v4 .mm-mealitem strong{font-size:14px}#meal-machine-v4 .mm-machine-bottom{font-size:11px}}
+@media(prefers-reduced-motion:reduce){#meal-machine-v4 .mm-reel,#meal-machine-v4 .mm-mealitem{animation:none!important}#meal-machine-v4 .mm-lever-arm{transition:none}}
+
+#meal-machine-v4{padding:12px 0 24px}#meal-machine-v4 button{cursor:pointer}#meal-machine-v4 button:disabled{cursor:default}#meal-machine-v4 .mm-tag{font-size:11px}#meal-machine-v4 .mm-food-picker{margin-top:10px}#meal-machine-v4 .mm-food-picker summary{min-height:44px;font-size:13px;font-weight:700;line-height:1.5;padding:12px 0;cursor:pointer}#meal-machine-v4 .mm-pick{font-size:12px;height:auto;min-height:112px;line-height:1.5}#meal-machine-v4 .mm-store{padding:14px 20px 0;font-size:12px;line-height:1.7}#meal-machine-v4 .mm-store b,#meal-machine-v4 .mm-store span,#meal-machine-v4 .mm-store small{display:block}#meal-machine-v4 .mm-store small{font-size:11px;color:var(--muted)}#meal-machine-v4 .mm-contents{font-size:12px;line-height:1.6;color:var(--muted);margin-top:4px}#meal-machine-v4 .mm-symbol img{height:70px}#meal-machine-v4 .mm-symbol strong{font-size:12px;max-height:60px;line-height:1.35}#meal-machine-v4 .mm-lever-arm{transform:rotate(-8deg)}#meal-machine-v4 .mm-lever.pulled .mm-lever-arm{transform:scaleY(.45) rotate(-8deg)}#meal-machine-v4 .mm-lever.pulled .mm-lever-knob{transform:scaleY(2.22)}#meal-machine-v4 .mm-prize strong{font-size:34px;white-space:nowrap}#meal-machine-v4 .mm-prize strong.mm-prize-text{font-size:23px}#meal-machine-v4 .mm-prize{gap:12px;padding:12px}#meal-machine-v4 .mm-prize p{font-size:12px;max-width:170px}#meal-machine-v4 .mm-scratch{height:120px}#meal-machine-v4 .mm-total-price{font-size:29px}#meal-machine-v4 .mm-symbol strong{overflow-wrap:anywhere}
+
+/* Compact, separate views; the browser document never becomes a long landing page. */
+
+#meal-machine-v4{padding:0;height:680px}
+#meal-machine-v4 .mm-app{height:680px;max-height:900px;display:flex;flex-direction:column;position:relative;border-radius:0;background:#faf8f1}
+#meal-machine-v4 .mm-nav{padding:17px 20px 10px;flex-shrink:0}
+#meal-machine-v4 .mm-location{padding:0 20px 12px;background:#fff;display:flex;justify-content:space-between;font-size:11px;color:#746c63;align-items:center}
+#meal-machine-v4 .mm-location button{border:0;background:none;color:#746c63;text-decoration:underline;min-height:24px}
+#meal-machine-v4 .mm-steps{display:flex;padding:10px 18px;gap:4px;background:#fff;border-bottom:1px solid #eae7e1;flex-shrink:0}
+#meal-machine-v4 .mm-steps button{flex:1;display:flex;align-items:center;justify-content:center;gap:6px;border:0;background:none;min-height:32px;font-size:12px;color:#9b958c}
+#meal-machine-v4 .mm-steps i{font-style:normal;border-radius:50%;background:#f2f0ea;width:21px;height:21px;line-height:21px;font-size:11px}
+#meal-machine-v4 .mm-steps [aria-current="step"]{color:#322017;font-weight:800}
+#meal-machine-v4 .mm-steps [aria-current="step"] i{background:#ffca08}
+#meal-machine-v4 .mm-content{min-height:0;flex:1;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin}
+#meal-machine-v4 .mm-view{padding:18px 18px 10px}
+#meal-machine-v4 .mm-hero{height:170px;border-radius:16px;padding:17px;background:#ffd52c;margin:0 0 18px}
+#meal-machine-v4 .mm-hero:before{height:6px;background-size:14px 14px}
+#meal-machine-v4 .mm-eyebrow{font-size:9px;letter-spacing:1.1px}
+#meal-machine-v4 .mm-hero h2{font-size:26px;line-height:1.35;letter-spacing:-1px;width:250px;margin:8px 0;color:#4c2516}
+#meal-machine-v4 .mm-hero p{font-size:11px;position:relative;z-index:2;max-width:175px;margin:0}
+#meal-machine-v4 #mm-hero-food{position:absolute;right:-20px;bottom:-16px;width:190px;height:142px;object-fit:contain;mix-blend-mode:multiply;transform:rotate(-9deg)}
+#meal-machine-v4 .mm-controls{margin:0;padding:15px;border:1px solid #ece6db;border-radius:14px}
+#meal-machine-v4 .mm-budgetbox{border:0;padding:0}
+#meal-machine-v4 .mm-budgetbox label{font-size:13px;font-weight:800}
+#meal-machine-v4 .mm-budgetbox small{display:block;font-size:10px;color:#746c63;margin-top:7px}
+#meal-machine-v4 #mm-budget{font-size:31px;width:66px}
+#meal-machine-v4 .mm-presets{display:flex;gap:8px;margin-top:14px}
+#meal-machine-v4 .mm-presets button{border:1px solid #e7e2d7;background:#faf8f1;color:#584332;flex:1;min-height:35px;border-radius:8px;font-size:12px}
+#meal-machine-v4 .mm-presets button[aria-pressed="true"]{background:#fff2b9;border-color:#e5b600}
+#meal-machine-v4 .mm-locked{padding:18px 0 0}
+#meal-machine-v4 .mm-sectionhead{font-size:13px}
+#meal-machine-v4 #mm-open-picker{border:0;background:none;color:#a22229;padding:8px 0;min-height:32px;font-size:12px;font-weight:700}
+#meal-machine-v4 .mm-lockchip{font-size:11px;min-height:36px;border:1px solid #e7dfd0;max-width:100%;text-align:left}
+#meal-machine-v4 .mm-hint{font-size:10px;line-height:1.65;color:#84796e;margin:9px 0 0}
+#meal-machine-v4 .mm-setup-note{text-align:center;font-size:10px;color:#8c8177;margin:17px 0 0}
+#meal-machine-v4 .mm-page-title{margin:0 0 16px}
+#meal-machine-v4 .mm-page-title small{font-size:9px;letter-spacing:1.5px;color:#a17d47}
+#meal-machine-v4 .mm-page-title h2{width:auto;font-size:25px;letter-spacing:-1px;line-height:1.3;margin:7px 0}
+#meal-machine-v4 .mm-page-title p{font-size:11px;color:#746c63;margin:0}
+#meal-machine-v4 .mm-routes{margin:0 0 22px;gap:10px}
+#meal-machine-v4 .mm-route{padding:12px;border-radius:12px}
+#meal-machine-v4 .mm-route-price{font-size:21px;margin:5px 0}
+#meal-machine-v4 .mm-route-note{font-size:10px}
+#meal-machine-v4 .mm-machine-wrap{padding:0 39px 0 0}
+#meal-machine-v4 .mm-machine{padding-top:23px;box-shadow:inset 0 2px 0 #ffffff65,0 7px 0 #81222a,0 16px 22px #53291d20}
+#meal-machine-v4 .mm-machinetitle{font-size:15px}
+#meal-machine-v4 .mm-machine-top small{font-size:9px}
+#meal-machine-v4 .mm-lever{right:-7px;width:48px}
+#meal-machine-v4 .mm-lever-label{font-size:9px}
+#meal-machine-v4 .mm-symbol strong{font-size:11px}
+#meal-machine-v4 .mm-machine-bottom{font-size:9px}
+#meal-machine-v4 .mm-preview{margin-top:22px;padding:12px 0;border-bottom:1px solid #e8e0d3;display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:11px}
+#meal-machine-v4 .mm-preview button{border:0;background:none;color:#a22229;font-size:12px;font-weight:800;min-height:36px;padding:0}
+#meal-machine-v4 .mm-action{padding:8px 18px max(14px,env(safe-area-inset-bottom));border-top:1px solid #eee7d8;background:#fff;flex-shrink:0;z-index:3}
+#meal-machine-v4 .mm-status{min-height:16px;margin:0 0 7px;font-size:10px;line-height:1.5}
+#meal-machine-v4 .mm-go{min-height:50px;box-shadow:none;border-radius:13px;font-size:15px;padding:13px 18px}
+#meal-machine-v4 .mm-alert{max-height:145px;overflow-y:auto;margin:0 0 8px;padding:9px;font-size:11px}
+#meal-machine-v4 .mm-rescue button{min-height:32px;font-size:11px}
+#meal-machine-v4 .mm-total{margin:0 0 14px;background:#fff2b9;border:1px solid #f1db8b;padding:15px;border-radius:14px}
+#meal-machine-v4 .mm-total-price{font-size:33px;white-space:nowrap}
+#meal-machine-v4 .mm-total-label b{font-size:12px}
+#meal-machine-v4 .mm-total-label span{font-size:10px}
+#meal-machine-v4 .mm-fullmeal{margin:0;padding:0;background:none}
+#meal-machine-v4 .mm-mealitem{padding:9px;border-radius:12px}
+#meal-machine-v4 .mm-mealitem img{height:62px}
+#meal-machine-v4 .mm-mealitem strong{font-size:12px}
+#meal-machine-v4 .mm-item-meta,#meal-machine-v4 .mm-contents{font-size:10px;line-height:1.5}
+#meal-machine-v4 .mm-item-button,#meal-machine-v4 .mm-item-mandatory{font-size:11px;min-height:36px;line-height:1.4;margin-top:8px}
+#meal-machine-v4 .mm-item-mandatory{display:flex;align-items:center;justify-content:center;padding:8px 4px}
+#meal-machine-v4 .mm-ticket{margin:14px 0 0;padding:12px;border:1px dashed #d6c7ad;background:#fff}
+#meal-machine-v4 .mm-ticket summary{font-size:12px;font-weight:700;cursor:pointer;min-height:30px;list-style:none;display:flex;justify-content:space-between;align-items:center}
+#meal-machine-v4 .mm-ticket[open] summary{margin-bottom:10px}
+#meal-machine-v4 .mm-scratch{height:105px}
+#meal-machine-v4 dialog{color:#322017;background:#faf8f1;border:0;border-radius:20px;box-shadow:0 25px 100px #38241555;padding:0;max-width:440px;width:calc(100% - 24px)}
+#meal-machine-v4 dialog::backdrop{background:#21180eb3;backdrop-filter:blur(3px)}
+#meal-machine-v4 .mm-picker-dialog[open]{display:flex;flex-direction:column;height:520px;max-height:700px}
+#meal-machine-v4 .mm-dialoghead{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:18px;background:#fff;border-bottom:1px solid #eae7e1}
+#meal-machine-v4 .mm-dialoghead b{font-size:16px}
+#meal-machine-v4 .mm-dialoghead p{font-size:10px;color:#746c63;margin:7px 0 0}
+#meal-machine-v4 .mm-dialoghead button{width:38px;height:38px;border:0;border-radius:50%;background:#f4f1e9;font-size:22px;flex-shrink:0}
+#meal-machine-v4 .mm-picker-body{padding:12px;overflow-y:auto;min-height:0;flex:1}
+#meal-machine-v4 .mm-categories{position:sticky;top:-12px;background:#faf8f1;z-index:2;padding:4px 0 10px;gap:4px}
+#meal-machine-v4 .mm-category{min-height:35px;font-size:11px;padding:7px 10px}
+#meal-machine-v4 .mm-picks{margin:0;gap:7px}
+#meal-machine-v4 .mm-pick{font-size:10px;min-height:120px}
+#meal-machine-v4 .mm-pick span{font-size:10px}
+#meal-machine-v4 .mm-picker-done{margin:12px;border:0;border-radius:11px;background:#ffca08;min-height:44px;font-weight:800;flex-shrink:0}
+#meal-machine-v4 .mm-info-dialog{padding:22px;font-size:12px;line-height:1.8}
+#meal-machine-v4 .mm-info-dialog h3{margin:0 0 12px}
+#meal-machine-v4 .mm-store{padding:0;font-size:12px}
+#meal-machine-v4 .mm-info-dialog>button{width:100%;background:#ffca08;border:0;border-radius:10px;min-height:44px;font-weight:700}
+#meal-machine-v4 button:focus-visible,#meal-machine-v4 input:focus-visible{outline:3px solid #d39823;outline-offset:3px}
+@media(min-width:600px){#meal-machine-v4{display:flex;align-items:center;justify-content:center;padding:14px}#meal-machine-v4 .mm-app{height:calc(680px - 28px);border-radius:24px;border:1px solid #e2ddd1}}
+@media(max-height:720px){#meal-machine-v4 .mm-view{padding-top:12px}#meal-machine-v4 .mm-hero{height:138px;margin-bottom:12px}#meal-machine-v4 .mm-hero h2{font-size:23px}#meal-machine-v4 .mm-page-title{margin-bottom:10px}#meal-machine-v4 .mm-page-title h2{font-size:22px}#meal-machine-v4 .mm-routes{margin-bottom:15px}#meal-machine-v4 .mm-route{padding:9px}#meal-machine-v4 .mm-preview{margin-top:15px;padding:7px 0}#meal-machine-v4 .mm-setup-note{margin-top:10px}}
+
+#meal-machine-v4 #mm-machine-view>.mm-hint{display:none}
+@media(max-height:720px){
+#meal-machine-v4 .mm-nav{padding-top:12px}
+#meal-machine-v4 .mm-steps{padding-top:7px;padding-bottom:7px}
+#meal-machine-v4 #mm-machine-view .mm-page-title small{display:none}
+#meal-machine-v4 #mm-machine-view .mm-page-title p{display:none}
+#meal-machine-v4 .mm-route-note{display:none}
+#meal-machine-v4 #mm-machine-view .mm-page-title h2{font-size:21px;margin:3px 0 6px}
+#meal-machine-v4 .mm-route-price{font-size:18px;margin:3px 0}
+#meal-machine-v4 .mm-route-title{font-size:12px}
+#meal-machine-v4 .mm-machine{padding-top:18px}
+#meal-machine-v4 .mm-machine-top{margin-bottom:8px}
+#meal-machine-v4 .mm-reel,#meal-machine-v4 .mm-symbol{height:118px}
+#meal-machine-v4 .mm-symbol{padding:7px 3px;gap:2px}
+#meal-machine-v4 .mm-symbol img{height:54px}
+#meal-machine-v4 .mm-symbol strong{font-size:10px;min-height:28px}
+#meal-machine-v4 .mm-machine-bottom{margin-top:8px;margin-bottom:8px}
+#meal-machine-v4 .mm-preview{margin-top:4px;padding:0;border:0}
+#meal-machine-v4 .mm-lever{top:20px}
+}
+
+#meal-machine-v4{height:auto;padding:0;display:block}#meal-machine-v4 .mm-app{height:680px;max-height:none;margin:auto}#meal-machine-v4 .mm-tag{color:#a22229}#meal-machine-v4 .mm-picker-dialog[open]{max-height:520px}
+
+html,body{margin:0;height:100%;background:#ece9e2}#meal-machine-v4{height:100dvh;display:flex;padding:0;align-items:center;justify-content:center}#meal-machine-v4 .mm-app{height:100dvh;max-height:900px;width:100%;border-radius:0}#meal-machine-v4 .mm-picker-dialog[open]{height:78dvh;max-height:700px}@media(min-width:600px){#meal-machine-v4{padding:14px;box-sizing:border-box}#meal-machine-v4 .mm-app{height:calc(100dvh - 28px);border-radius:24px}}
+
+#meal-machine-v4 .mm-hero{height:135px;margin-bottom:16px}
+#meal-machine-v4 .mm-hero h2{margin:4px 0 8px;font-size:25px;width:240px}
+#meal-machine-v4 .mm-hero p{display:none}
+#meal-machine-v4 #mm-hero-food{width:150px;height:116px;right:-6px;bottom:-9px}
+#meal-machine-v4 .mm-controls{border:2px solid #f0c534;padding:17px;background:#fffdf5;box-shadow:0 4px 0 #eadfbd}
+#meal-machine-v4 .mm-budgetbox label{font-size:18px;color:#322017}
+#meal-machine-v4 .mm-zone-number{font-size:12px;background:#322017;color:#fff;border-radius:6px;padding:4px 5px;vertical-align:middle}
+#meal-machine-v4 #mm-budget{font-size:36px;max-width:74px}
+#meal-machine-v4 .mm-amount{font-size:22px}
+#meal-machine-v4 .mm-presets{margin-top:17px;gap:10px}
+#meal-machine-v4 .mm-presets button{min-height:42px;font-size:14px;font-weight:700}
+#meal-machine-v4 .mm-locked{margin-top:18px;padding:12px 14px 15px;background:#fff;border:2px solid #eadfce;border-radius:14px}
+#meal-machine-v4 .mm-locked .mm-sectionhead{font-size:18px;margin-bottom:10px}
+#meal-machine-v4 #mm-open-picker{font-size:13px;min-height:40px;border-radius:9px;background:#ce262c;color:#fff;padding:9px 12px}
+#meal-machine-v4 .mm-lockchip{font-size:12px;min-height:38px;background:#fff0bb}
+#meal-machine-v4 .mm-lockempty{font-size:13px;color:#746c63;line-height:1.6}
+#meal-machine-v4 .mm-page-title h2{font-size:27px;margin:0 0 9px;width:auto}
+#meal-machine-v4 .mm-page-title p{font-size:13px}
+#meal-machine-v4 #mm-machine-view .mm-page-title{margin-bottom:30px}
+#meal-machine-v4 .mm-machine-wrap{padding-right:49px}
+#meal-machine-v4 .mm-machine{padding-top:28px;border:2px solid #92212b;box-shadow:inset 0 2px 0 #ffffff65,0 8px 0 #79212a,0 18px 25px #53291d30}
+#meal-machine-v4 .mm-machinetitle{font-size:21px;color:#fff}
+#meal-machine-v4 .mm-machine-top{align-items:center;margin-bottom:16px}
+#meal-machine-v4 .mm-machine-top small{font-size:11px;letter-spacing:1px}
+#meal-machine-v4 .mm-machine-bottom{font-size:12px;margin-top:15px;margin-bottom:14px}
+#meal-machine-v4 .mm-lever{right:-2px;top:47px;width:52px}
+#meal-machine-v4 .mm-lever-knob{width:35px;height:37px;left:-8px;box-shadow:1px 4px 0 #8b2423,0 8px 12px #68141640}
+#meal-machine-v4 .mm-lever-hub{width:35px;height:38px;left:-2px;bottom:33px}
+#meal-machine-v4 .mm-lever-label{font-size:11px;font-weight:700;color:#9b2028}
+#meal-machine-v4 .mm-machine-trim{height:18px;gap:18px}
+#meal-machine-v4 .mm-machine-trim span{width:7px;height:7px}
+#meal-machine-v4 .mm-machine.is-running .mm-machine-trim span{animation:mm-light-chase .24s infinite alternate}
+#meal-machine-v4 .mm-machine.is-running .mm-machine-trim span:nth-child(2){animation-delay:.08s}
+#meal-machine-v4 .mm-machine.is-running .mm-machine-trim span:nth-child(3){animation-delay:.16s}
+#meal-machine-v4 .mm-machine.is-running{animation:mm-start-kick .4s ease-out}
+#meal-machine-v4 .mm-machine.just-landed{animation:mm-machine-land .32s ease-out}
+#meal-machine-v4 .mm-reel.is-rolling .mm-strip{filter:blur(1px);will-change:transform}
+#meal-machine-v4 .mm-reel.is-settled{animation:mm-big-stop .38s cubic-bezier(.2,.7,.2,1)}
+#meal-machine-v4 .mm-preview{margin-top:25px;border:0;background:#fff0bc;padding:14px;border-radius:12px;font-size:13px;gap:8px}
+#meal-machine-v4 .mm-preview button{font-size:13px;min-height:38px}
+#meal-machine-v4 .mm-status{display:none}
+#meal-machine-v4 .mm-action.has-message .mm-status{display:block;font-size:12px;line-height:1.5;min-height:18px}
+#meal-machine-v4 .mm-go{font-size:17px;font-weight:800;min-height:54px;box-shadow:0 4px 0 #dbaa04;margin-bottom:4px}
+#meal-machine-v4 .mm-total-label b{font-size:14px}
+#meal-machine-v4 .mm-total-label span{font-size:12px}
+#meal-machine-v4 .mm-sectionhead{font-size:17px}
+#meal-machine-v4 .mm-mealitem strong{font-size:14px}
+#meal-machine-v4 .mm-item-meta{font-size:12px}
+#meal-machine-v4 .mm-item-button,#meal-machine-v4 .mm-item-mandatory{min-height:40px;font-size:12px}
+#meal-machine-v4 .mm-ticket summary{font-size:13px;min-height:42px}
+@keyframes mm-start-kick{0%,100%{transform:translateY(0)}20%{transform:translateY(5px)}55%{transform:translateY(-3px)}}
+@keyframes mm-light-chase{from{background:#ffbf35;box-shadow:0 0 0 #fff}to{background:#fffbd6;box-shadow:0 0 12px 3px #ffe47c}}
+@keyframes mm-big-stop{0%{transform:translateY(-10px)}45%{transform:translateY(7px)}72%{transform:translateY(-3px)}100%{transform:translateY(0)}}
+@keyframes mm-machine-land{0%,100%{transform:translateY(0)}35%{transform:translateY(3px)}}
+@media(max-height:720px){#meal-machine-v4 .mm-hero{height:112px;margin-bottom:12px}#meal-machine-v4 .mm-hero h2{font-size:23px}#meal-machine-v4 .mm-controls{padding:12px}#meal-machine-v4 .mm-locked{margin-top:14px;padding:10px}#meal-machine-v4 .mm-presets{margin-top:12px}#meal-machine-v4 .mm-budgetbox label,#meal-machine-v4 .mm-locked .mm-sectionhead{font-size:16px}#meal-machine-v4 #mm-machine-view .mm-page-title{margin-bottom:18px}#meal-machine-v4 .mm-page-title h2{font-size:24px}#meal-machine-v4 .mm-machine-top{margin-bottom:10px}#meal-machine-v4 .mm-machinetitle{font-size:18px}#meal-machine-v4 .mm-machine-bottom{margin-top:9px;margin-bottom:9px;font-size:10px}#meal-machine-v4 .mm-preview{margin-top:20px;padding:9px 12px}}
+@media(prefers-reduced-motion:reduce){#meal-machine-v4 .mm-machine,#meal-machine-v4 .mm-machine-trim span,#meal-machine-v4 .mm-reel{animation:none!important}}
+
+#meal-machine-v4 .mm-lever-arm{transition:transform .18s cubic-bezier(.2,.8,.3,1)}#meal-machine-v4 .mm-lever.pulled .mm-lever-arm{transform:rotate(35deg)}#meal-machine-v4 .mm-lever.pulled .mm-lever-knob{transform:none}#meal-machine-v4 .mm-symbol strong{font-size:14px;min-height:38px}@media(max-height:720px){#meal-machine-v4 .mm-symbol strong{font-size:12px;min-height:32px}}@media(prefers-reduced-motion:reduce){#meal-machine-v4 .mm-lever-arm{transition:none}}
+
+#meal-machine-v4 .mm-nav{padding:12px 16px 7px}
+#meal-machine-v4 .mm-location{padding:0 16px 7px}
+#meal-machine-v4 .mm-steps{padding:7px 12px}
+#meal-machine-v4 .mm-content{flex:0 1 auto;max-height:calc(100dvh - 190px)}
+#meal-machine-v4 .mm-action{margin-top:0;padding:10px 16px max(14px,env(safe-area-inset-bottom))}
+#meal-machine-v4 .mm-app{height:auto;max-height:100dvh;align-self:flex-start;margin-top:0;min-height:0}
+#meal-machine-v4{align-items:flex-start}
+#meal-machine-v4 .mm-view{padding:14px 16px 16px}
+#meal-machine-v4 .mm-hero{height:107px;margin-bottom:12px;padding:12px 14px}
+#meal-machine-v4 .mm-hero h2{font-size:24px;margin:0;line-height:1.35}
+#meal-machine-v4 #mm-hero-food{width:128px;height:102px}
+#meal-machine-v4 .mm-controls{background:#fff7d7;border:0;box-shadow:none;padding:16px;border-radius:14px}
+#meal-machine-v4 .mm-budgetbox{align-items:center}
+#meal-machine-v4 .mm-budgetbox label{font-size:18px}
+#meal-machine-v4 #mm-budget{font-size:36px;width:92px;max-width:none;border:0;text-align:right;padding:2px 0}
+#meal-machine-v4 .mm-budget-track{margin-top:13px}
+#meal-machine-v4 .mm-budget-track input{width:100%;height:32px;margin:0;accent-color:#ce262c;cursor:ew-resize}
+#meal-machine-v4 .mm-budget-track span{font-size:11px;color:#746c63;display:block;margin-top:2px}
+#meal-machine-v4 .mm-locked{margin-top:12px;padding:12px;border:0;background:#fff;border-radius:14px}
+#meal-machine-v4 .mm-page-title h2{font-size:24px;margin-bottom:7px}
+#meal-machine-v4 #mm-machine-view .mm-page-title{margin-bottom:17px}
+#meal-machine-v4 .mm-preview{margin-top:17px;padding:8px 12px;font-size:14px}
+#meal-machine-v4 .mm-peek{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:5px;margin-top:9px}
+#meal-machine-v4 .mm-peek-item{border:1px solid #eadfce;background:#fff;color:#322017;min-width:0;border-radius:9px;padding:6px 3px;display:flex;flex-direction:column;align-items:center;gap:3px}
+#meal-machine-v4 .mm-peek-item img{width:100%;height:42px;object-fit:contain}
+#meal-machine-v4 .mm-peek-item span{font-size:11px;line-height:1.35;min-height:30px;display:flex;align-items:center}
+#meal-machine-v4 .mm-peek-item b{font-size:11px;color:#a22229;font-weight:700}
+#meal-machine-v4 .mm-peek-item.held{background:#fff0bc;border-color:#edc63a}
+#meal-machine-v4 .mm-peek-item:disabled{opacity:1}
+#meal-machine-v4 .mm-ticket{position:relative;border:0;background:#fff1bd;padding:12px;overflow:hidden}
+#meal-machine-v4 .mm-ticket summary{min-height:32px;cursor:default}
+#meal-machine-v4 .mm-ticket summary span{font-size:10px;color:#8d663c}
+#meal-machine-v4 .mm-scratch{height:118px;background:#fff9e6;overflow:hidden}
+#meal-machine-v4 #mm-scratch{transition:transform .55s cubic-bezier(.2,.8,.2,1),opacity .5s}
+#meal-machine-v4 .mm-prize strong{font-size:38px}
+#meal-machine-v4 .mm-confetti{position:absolute;inset:0;pointer-events:none;z-index:3;overflow:hidden}
+#meal-machine-v4 .mm-confetti i{position:absolute;width:7px;height:11px;background:#ce262c;left:50%;top:55%;opacity:0}
+#meal-machine-v4 .mm-confetti i:nth-child(even){background:#eaa900}
+#meal-machine-v4 .mm-confetti i:nth-child(3n){background:#895b34;border-radius:50%}
+#meal-machine-v4 .mm-ticket.revealed .mm-confetti i{animation:mm-receipt-pop .8s ease-out both}
+#meal-machine-v4 .mm-confetti i:nth-child(1){--dx:-132.0px;--dy:-35px;animation-delay:0.0s}
+#meal-machine-v4 .mm-confetti i:nth-child(2){--dx:-108.0px;--dy:-52px;animation-delay:0.018s}
+#meal-machine-v4 .mm-confetti i:nth-child(3){--dx:-84.0px;--dy:-69px;animation-delay:0.036s}
+#meal-machine-v4 .mm-confetti i:nth-child(4){--dx:-60.0px;--dy:-86px;animation-delay:0.05399999999999999s}
+#meal-machine-v4 .mm-confetti i:nth-child(5){--dx:-36.0px;--dy:-35px;animation-delay:0.072s}
+#meal-machine-v4 .mm-confetti i:nth-child(6){--dx:-12.0px;--dy:-52px;animation-delay:0.09s}
+#meal-machine-v4 .mm-confetti i:nth-child(7){--dx:12.0px;--dy:-69px;animation-delay:0.10799999999999998s}
+#meal-machine-v4 .mm-confetti i:nth-child(8){--dx:36.0px;--dy:-86px;animation-delay:0.126s}
+#meal-machine-v4 .mm-confetti i:nth-child(9){--dx:60.0px;--dy:-35px;animation-delay:0.144s}
+#meal-machine-v4 .mm-confetti i:nth-child(10){--dx:84.0px;--dy:-52px;animation-delay:0.16199999999999998s}
+#meal-machine-v4 .mm-confetti i:nth-child(11){--dx:108.0px;--dy:-69px;animation-delay:0.18s}
+#meal-machine-v4 .mm-confetti i:nth-child(12){--dx:132.0px;--dy:-86px;animation-delay:0.19799999999999998s}
+
+@keyframes mm-receipt-pop{0%{opacity:0;transform:translate(0,0) rotate(0)}15%{opacity:1}100%{opacity:0;transform:translate(var(--dx),var(--dy)) rotate(220deg)}}
+@media(min-width:600px){#meal-machine-v4{padding:14px}#meal-machine-v4 .mm-content{max-height:calc(100dvh - 220px)}}
+@media(max-height:720px){#meal-machine-v4 .mm-view{padding-top:10px}#meal-machine-v4 .mm-peek-item img{height:31px}#meal-machine-v4 .mm-peek-item span{font-size:10px;min-height:27px}#meal-machine-v4 .mm-peek-item{padding-top:3px}#meal-machine-v4 .mm-preview{margin-top:15px}}
+@media(prefers-reduced-motion:reduce){#meal-machine-v4 #mm-scratch{transition:none}#meal-machine-v4 .mm-confetti i{animation:none!important}}
+
+#meal-machine-v4 .mm-quick{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin-top:11px}#meal-machine-v4 .mm-quick button{border:1px solid #e9e4d8;background:#faf8f1;border-radius:8px;padding:5px 3px;display:flex;flex-direction:column;align-items:center;min-width:0;gap:3px}#meal-machine-v4 .mm-quick button[aria-pressed="true"]{background:#fff0ba;border-color:#e2b500}#meal-machine-v4 .mm-quick img{width:100%;height:47px;object-fit:contain}#meal-machine-v4 .mm-quick span{font-size:11px;min-height:30px;line-height:1.35;display:flex;align-items:center}#meal-machine-v4 .mm-quick b{font-size:11px;color:#a22229}#meal-machine-v4 .mm-lockempty{display:none}
+
+#meal-machine-v4 .mm-machine-wrap{padding-right:61px}
+#meal-machine-v4 .mm-machine{background:#f6f0e4;border:3px solid #c62a32;border-radius:25px 25px 17px 17px;padding:12px 10px 10px;box-shadow:0 5px 0 #9e2029,0 12px 18px #65372220}
+#meal-machine-v4 .mm-machine:before{display:none}
+#meal-machine-v4 .mm-machine-top{margin:0 0 11px;padding:11px 12px;background:#c62a32;border-radius:15px 15px 8px 8px;align-items:center}
+#meal-machine-v4 .mm-machinetitle{font-size:18px;letter-spacing:.4px;color:#fff8e7}
+#meal-machine-v4 .mm-machine-top small{color:#ffe9a2;font-size:10px}
+#meal-machine-v4 .mm-frame{background:#d1b271;border:0;padding:4px;border-radius:12px;box-shadow:inset 0 1px 0 #fff0cb,0 2px 0 #b29357}
+#meal-machine-v4 .mm-reel{border-radius:7px;background:linear-gradient(#d9d7d0,#fffdf6 22%,#fffdf6 77%,#e1ddd3);box-shadow:inset 0 3px 7px #594b2525}
+#meal-machine-v4 .mm-machine-bottom{color:#806346;margin:12px 2px 9px;font-size:11px}
+#meal-machine-v4 .mm-machine-bottom b{color:#a02129;font-size:10px}
+#meal-machine-v4 .mm-machine-trim{height:12px;background:#c62a32;border-radius:6px;box-shadow:none;gap:16px}
+#meal-machine-v4 .mm-machine-trim span{width:5px;height:5px}
+#meal-machine-v4 .mm-lever{right:0;top:58px;width:62px;height:150px}
+#meal-machine-v4 .mm-lever-hub{left:9px;bottom:30px;width:26px;height:26px;border:3px solid #c7c8c5;background:radial-gradient(circle at 40% 35%,#faf9f5,#9da3a0 62%,#737977);box-shadow:0 2px 3px #3335}
+#meal-machine-v4 .mm-lever-arm{left:14px;bottom:43px;width:22px;height:68px;transform-origin:8px 100%;transform:rotate(-8deg)}
+#meal-machine-v4 .mm-lever-rod{left:4px;bottom:0;width:8px;height:64px;border-radius:4px;background:linear-gradient(90deg,#727c7b,#fffef8 36%,#cfd4d0 62%,#818b88);box-shadow:1px 0 1px #53605b}
+#meal-machine-v4 .mm-lever-knob{left:-5px;top:-7px;width:26px;height:26px;border-radius:50%;background:radial-gradient(circle at 33% 28%,#ffb7a1,#e84540 38%,#c3232c 73%);border:1px solid #aa222a;box-shadow:0 2px 1px #7f2028,0 4px 7px #8f2a2529}
+#meal-machine-v4 .mm-lever-knob:after{top:5px;left:5px;width:7px;height:4px;background:#ffe8d3aa}
+#meal-machine-v4 .mm-lever-label{font-size:10px;left:0;color:#9e272e;bottom:0}
+#meal-machine-v4 .mm-lever.pulled .mm-lever-arm{transform:rotate(35deg)}
+#meal-machine-v4 .mm-lever.pulled .mm-lever-knob{transform:none}
+@media(max-height:720px){#meal-machine-v4 .mm-machine-top{padding:8px 9px;margin-bottom:9px}#meal-machine-v4 .mm-machinetitle{font-size:16px}#meal-machine-v4 .mm-machine-bottom{font-size:10px;margin-top:9px}#meal-machine-v4 .mm-lever{top:40px}}
+
+
+#meal-machine-v4 .mm-action-buttons{display:flex;gap:9px;align-items:stretch}
+#meal-machine-v4 .mm-action-buttons .mm-go{flex:1;min-width:0}
+#meal-machine-v4 .mm-reroll{border:1px solid #e7d7b4;background:#fff;color:#796147;border-radius:13px;padding:0 12px;min-height:54px;font-size:13px}
+#meal-machine-v4 .mm-cart-dialog[open]{display:flex;flex-direction:column;box-sizing:border-box;height:82vh;height:82dvh;max-height:calc(100dvh - 24px);width:calc(100% - 24px);max-width:440px;overflow:hidden}
+#meal-machine-v4 .mm-checkout-head{display:flex;justify-content:space-between;align-items:center;padding:13px 16px;background:#fff;border-bottom:1px solid #e8dfce;flex-shrink:0}
+#meal-machine-v4 .mm-checkout-head b{font-size:16px}
+#meal-machine-v4 .mm-checkout-head button{border:0;background:#f3eee3;border-radius:50%;width:36px;height:36px;font-size:23px}
+#meal-machine-v4 .mm-cart-dialog .mm-view{min-height:0;overflow-y:auto;flex:1 1 0;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+#meal-machine-v4 .mm-checkout-action{padding:12px 16px;background:#fff;flex-shrink:0}
+#meal-machine-v4 .mm-checkout-action button{border:0;background:#ffca08;color:#322017;border-radius:11px;min-height:48px;width:100%;font-size:15px;font-weight:700}
+
+#meal-machine-v4 .mm-confirm-message{font-size:12px;line-height:1.6;padding:0 16px;color:#805c27}#meal-machine-v4 .mm-confirm-message:empty{display:none}

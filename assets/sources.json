@@ -1,0 +1,182 @@
+[
+  {
+    "id": "5022",
+    "source": "https://menu-img.mcd.cn/pcm/prod/menu/20250709/product/MS_5022_320.png",
+    "local": "mcp-5022.png",
+    "bytes": 47566
+  },
+  {
+    "id": "5888",
+    "source": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_5888_320.png",
+    "local": "mcp-5888.png",
+    "bytes": 39027
+  },
+  {
+    "id": "5889",
+    "source": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_5889_320.png",
+    "local": "mcp-5889.png",
+    "bytes": 49255
+  },
+  {
+    "id": "521981",
+    "source": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_521981_320.png",
+    "local": "mcp-521981.png",
+    "bytes": 45374
+  },
+  {
+    "id": "521989",
+    "source": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_521989_320.png",
+    "local": "mcp-521989.png",
+    "bytes": 42488
+  },
+  {
+    "id": "1254",
+    "source": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_1254_320.png",
+    "local": "mcp-1254.png",
+    "bytes": 46441
+  },
+  {
+    "id": "4825",
+    "source": "https://menu-img.mcd.cn/pcm/prod/menu/20250506/product/MS_4825_320_1745825068180.png",
+    "local": "mcp-4825.png",
+    "bytes": 15664
+  },
+  {
+    "id": "2631",
+    "source": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_2631_320.png",
+    "local": "mcp-2631.png",
+    "bytes": 79484
+  },
+  {
+    "id": "4437",
+    "source": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_G4437_320.png",
+    "local": "mcp-4437.png",
+    "bytes": 101076
+  },
+  {
+    "id": "505235",
+    "source": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_505235_320.png",
+    "local": "mcp-505235.png",
+    "bytes": 96287
+  },
+  {
+    "id": "1088",
+    "source": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_1088_320.png",
+    "local": "mcp-1088.png",
+    "bytes": 45764
+  },
+  {
+    "id": "3755",
+    "source": "https://menu-img.mcd.cn/pcm/prod/menu/20240731/product/MS_3755_320.png",
+    "local": "mcp-3755.png",
+    "bytes": 50151
+  },
+  {
+    "id": "507328",
+    "source": "https://menu-img.mcd.cn/pcm/prod/menu/20250521/product/MS_507328_320.png",
+    "local": "mcp-507328.png",
+    "bytes": 26361
+  },
+  {
+    "id": "507368",
+    "source": "https://menu-img.mcd.cn/pcm/prod/menu/20250521/product/MS_507368_320.png",
+    "local": "mcp-507368.png",
+    "bytes": 26358
+  },
+  {
+    "id": "515837",
+    "source": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_515837_320.png",
+    "local": "mcp-515837.png",
+    "bytes": 54542
+  },
+  {
+    "id": "9900008752",
+    "source": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_G9900008752_320.gif",
+    "local": "mcp-9900008752.gif",
+    "bytes": 31931
+  },
+  {
+    "id": "513606",
+    "source": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_G513606_320.gif",
+    "local": "mcp-513606.gif",
+    "bytes": 73960
+  },
+  {
+    "id": "9900016335",
+    "source": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_9900016335_600.png",
+    "local": "mcp-9900016335.png",
+    "bytes": 76000
+  },
+  {
+    "id": "1100",
+    "local": "mcp-1100.png",
+    "url": "https://menu-img.mcd.cn/pcm/prod/menu/20250611/product/MS_1100_600_1749175370846.png",
+    "source": "query-meal-detail, 所选门店, 2026-10-13"
+  },
+  {
+    "id": "1120",
+    "local": "mcp-1120.png",
+    "url": "https://menu-img.mcd.cn/pcm/prod/menu/20260101/product/MS_1120_600.png",
+    "source": "query-meal-detail, 所选门店, 2026-10-13"
+  },
+  {
+    "id": "1406",
+    "local": "mcp-1406.png",
+    "url": "https://menu-img.mcd.cn/pcm/prod/menu/20241008/product/MS_1406_600.png",
+    "source": "query-meal-detail, 所选门店, 2026-10-13"
+  },
+  {
+    "id": "1440",
+    "local": "mcp-1440.png",
+    "url": "https://menu-img.mcd.cn/pcm/prod/menu/20250420/product/MS_1440_600_0_1744772198163.png",
+    "source": "query-meal-detail, 所选门店, 2026-10-13"
+  },
+  {
+    "id": "1450",
+    "local": "mcp-1450.png",
+    "url": "https://menu-img.mcd.cn/pcm/prod/menu/20260520/product/MS_1450_600.png",
+    "source": "query-meal-detail, 所选门店, 2026-10-13"
+  },
+  {
+    "id": "1600",
+    "local": "mcp-1600.png",
+    "url": "https://menu-img.mcd.cn/pcm/prod/menu/20260520/product/MS_1600_600.png",
+    "source": "query-meal-detail, 所选门店, 2026-10-13"
+  },
+  {
+    "id": "1401",
+    "local": "mcp-1401.png",
+    "url": "https://menu-img.mcd.cn/pcm/prod/menu/20260529/product/MS_1401_600.png",
+    "source": "query-meal-detail, 所选门店, 2026-10-13"
+  },
+  {
+    "id": "1700",
+    "local": "mcp-1700.png",
+    "url": "https://menu-img.mcd.cn/pcm/prod/menu/20260219/product/MS_1700_600.png",
+    "source": "query-meal-detail, 所选门店, 2026-10-13"
+  },
+  {
+    "id": "4810",
+    "local": "mcp-4810.png",
+    "url": "https://menu-img.mcd.cn/pcm/prod/menu/20250423/product/MS_4810_600_1745199801147.png",
+    "source": "query-meal-detail, 所选门店, 2026-10-13"
+  },
+  {
+    "id": "520689",
+    "local": "mcp-520689.png",
+    "url": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_520689_600.png",
+    "source": "query-meal-detail, 所选门店, 2026-10-13"
+  },
+  {
+    "id": "515280",
+    "local": "mcp-515280.png",
+    "url": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_515280_600.png",
+    "source": "query-meal-detail, 所选门店, 2026-10-13"
+  },
+  {
+    "id": "521156",
+    "local": "mcp-521156.png",
+    "url": "https://menu-img.mcd.cn/pcm/prod/menu/20260520/product/MS_521156_600.png",
+    "source": "query-meal-detail, 所选门店, 2026-10-13"
+  }
+]

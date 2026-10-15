@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.env
+.env.*
+!.env.example
+dist/
+.codex/
+.agents/
+docs/connect-mcd-local.*
+docs/mcd-connection-status.json
+assets/mcp-*.png
+assets/mcp-*.gif
