@@ -299,3 +299,5 @@ html,body{margin:0;height:100%;background:#ece9e2}#meal-machine-v4{height:100dvh
 #meal-machine-v4 .mm-checkout-action button{border:0;background:#ffca08;color:#322017;border-radius:11px;min-height:48px;width:100%;font-size:15px;font-weight:700}
 
 #meal-machine-v4 .mm-confirm-message{font-size:12px;line-height:1.6;padding:0 16px;color:#805c27}#meal-machine-v4 .mm-confirm-message:empty{display:none}
+
+#meal-machine-v4 .mm-discount-entry{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;border:1px solid #e8bf56;background:#fff1bb;color:#552513;border-radius:12px;padding:12px 14px;margin-top:12px;text-align:left;min-height:64px}#meal-machine-v4 .mm-discount-entry b{font-size:16px}#meal-machine-v4 .mm-discount-entry small{display:block;font-size:12px;margin-top:4px}#meal-machine-v4 .mm-discount-entry strong{background:#c92224;color:white;border-radius:20px;padding:10px 12px;font-size:13px;white-space:nowrap}#meal-machine-v4 .mm-discount-entry:disabled{opacity:.6}#meal-machine-v4 .mm-discount-total{margin:8px 14px;color:#ad1b20;font-size:14px;font-weight:700}

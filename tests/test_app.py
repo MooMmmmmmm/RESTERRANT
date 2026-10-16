@@ -79,6 +79,23 @@ class CoreTests(unittest.TestCase):
 class FullMenuTests(unittest.TestCase):
     setUp=CoreTests.setUp
     tearDown=CoreTests.tearDown
+    def test_single_food_filter_keeps_portions_and_excludes_bundles(self):
+        for name,category in [('麦辣鸡腿汉堡','主食'),('麦乐鸡6块','小食'),('韩式甜辣酱鸡块8块','小食拼盘 /多人餐'),('新地','甜品')]:
+            self.assertTrue(app.is_single_food({'name':name,'category':category}),name)
+        for name in ['巨无霸三件套','板烧鸡腿堡套餐','人气经典随心配','全明星双人分享餐','旋旋星愿贴','麦当劳联名徽章']:
+            self.assertFalse(app.is_single_food({'name':name}),name)
+        self.assertFalse(app.is_single_food({'name':'神秘组合','contents':['汉堡','可乐']}))
+    def test_refresh_does_not_restore_bundle_via_coupon_seed(self):
+        class MenuMCP:
+            def call(self,name,args):
+                if name=='query-meals':return {'data':{'meals':{'single':{'name':'麦乐鸡6块','currentPrice':'10'},'bundle':{'name':'汉堡三件套','currentPrice':'20'}},'categories':[]},'datetime':'test'}
+                if name=='query-store-coupons':return {'data':[{'products':[{'productCode':'bundle'},{'productCode':'coupon-single'},{'productCode':'coupon-bundle'}]}]}
+                raise AssertionError('no price requests needed')
+        self.refresh.stop();app.CLIENT=MenuMCP()
+        seed=[{'id':code,'name':name,'category':'优惠','price':1000,'contents':[]} for code,name in [('coupon-single','麦香鸡'),('coupon-bundle','麦香鸡套餐')]]
+        with patch.object(app,'SEED',{'catalog':seed}),patch.object(app,'SOURCES',{'coupon-single':'test.png'}):app.refresh()
+        self.assertEqual(set(app.STATE['catalog']),{'single','coupon-single'})
+        self.assertIn('coupon-single',app.STATE['coupons'])
     def test_refresh_keeps_full_menu_without_seed_or_detail_prefetch(self):
         class MenuMCP:
             def __init__(self):self.calls=[]

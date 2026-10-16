@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "singleFoods": 59,
+  "bundlesExcluded": true,
+  "sameFoodPortionsKept": true,
+  "zeroDiscountVisible": true,
+  "scratchRevealed": true,
+  "lockPreserved": true,
+  "mobileWidths": [
+    320,
+    390
+  ],
+  "javascriptErrors": [],
+  "realMcpCalled": false
+}

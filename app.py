@@ -154,6 +154,13 @@ def ensure_item(code):
     DETAILS[key] = copy.deepcopy(detail)
     return item
 
+def is_single_food(food):
+    name = food.get('name', '')
+    category = food.get('category', '')
+    return not (re.search(r'套餐|[一二三四五六七八九十0-9]+件套|多人餐|双人|分享餐|双全盒|四宫格|双拼|随心配|随心拼|任选|随心选|开心乐园餐|单品精选|冰爽一夏|徽章|贴|捶痒痒挠', name)
+                or (re.search(r'单人餐|多人餐|套餐|随心配|开心乐园', category) and not re.search(r'\d+块$', name))
+                or len(food.get('contents', [])) > 1)
+
 def refresh():
     menu = CLIENT.call('query-meals', ARGS)
     coupons = CLIENT.call('query-store-coupons', ARGS)
@@ -189,10 +196,11 @@ def refresh():
                     couponOnly=False,supportModify=food.get('supportModify',False),
                     contents=food.get('contents',[]),types=food.get('types',[category]))
         food['foodNames'] = food['contents'] or [food['name']]
-        catalog[code] = food
+        if is_single_food(food):
+            catalog[code] = food
     for seed in SEED['catalog']:
         code = seed['id']
-        if code in catalog or code not in available_coupons:
+        if code in catalog or code not in available_coupons or not is_single_food(seed):
             continue
         food = copy.deepcopy(seed)
         food['couponOnly'] = code not in current

@@ -33,7 +33,8 @@
     "contents",
     "supportModify"
   ],
-  "publicSnapshotCount": 113,
+  "publicSnapshotCount": 59,
   "publicSnapshotValidated": true,
-  "publicFoodFieldsAllowlisted": true
+  "publicFoodFieldsAllowlisted": true,
+  "singleItemFilterApplied": true
 }

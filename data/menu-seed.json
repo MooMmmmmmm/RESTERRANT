@@ -335,52 +335,6 @@
       }
     },
     {
-      "id": "9900016335",
-      "name": "芝香脆鸡扒堡早餐两件套",
-      "category": "优惠",
-      "image": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_9900016335_600.png",
-      "price": 990,
-      "original": 990,
-      "supportModify": false,
-      "contents": [
-        "芝香脆鸡扒堡",
-        "鲜萃冰咖"
-      ],
-      "item": {
-        "productCode": "9900016335",
-        "quantity": 1,
-        "roundList": [
-          {
-            "round": "1",
-            "comboItemList": [
-              {
-                "code": "522000",
-                "quantity": 1,
-                "modification": {
-                  "values": [
-                    {
-                      "code": "100141",
-                      "key": "0-1",
-                      "quantity": 1
-                    }
-                  ]
-                }
-              }
-            ]
-          },
-          {
-            "round": "2",
-            "comboItemList": [
-              {
-                "code": "521327",
-                "quantity": 1
-              }
-            ]
-          }
-        ]
-      }
-    },
-    {
       "id": "1100",
       "name": "巨无霸",
       "category": "主食",
